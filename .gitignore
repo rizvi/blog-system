@@ -1,0 +1,47 @@
+.gradle
+/build/
+!gradle/wrapper/gradle-wrapper.jar
+MESOS_SANDBOX_IS_UNDEFINED/
+*.jar
+*.log
+*.log.*
+*.lck
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+
+### IntelliJ IDEA ###
+.idea
+.idea/*
+*.iws
+*.iml
+*.ipr
+out/
+classes/
+gradle/
+logs/
+
+/.idea
+/.idea/*
+*/**/.idea
+
+### NetBeans ###
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+
+/logs/
+dev-ops-resources/scripts/data_load.log
+*.class
+
+/.classpath
+/target
+/.project
