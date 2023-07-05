@@ -73,7 +73,7 @@ public class UserInfoEdit implements Initializable {
                 preparedStatementUpdate.execute();
 //                CommonUtil.showAlert(Alert.AlertType.INFORMATION, "Successful", "Update Successful!");]
                 editedFlag = true;
-                CommonUtil.pageNavigation("/main/java/com/mit/du/reader/CustomerPages/CustomerInfo/UserInfo.fxml", (Stage) UserConfirm.getScene().getWindow(),this.getClass(),"User Home", 550, 400);
+                CommonUtil.pageNavigation("/reader/CustomerPages/CustomerInfo/UserInfo.fxml", (Stage) UserConfirm.getScene().getWindow(),this.getClass(),"User Home", 550, 400);
 
             } catch (SQLException e){
                 CommonUtil.showJFXAlert(rootPane, rootAnchorPane, "ERROR", "ERROR!", "Connection Problem!", JFXDialog.DialogTransition.CENTER);
@@ -125,6 +125,6 @@ public class UserInfoEdit implements Initializable {
     }
 
     public void BackBtn(ActionEvent event) throws IOException {
-        CommonUtil.pageNavigation("/main/java/com/mit/du/reader/CustomerPages/CustomerInfo/UserInfo.fxml", (Stage) UserConfirm.getScene().getWindow(),this.getClass(),"User Home", 550, 400);
+        CommonUtil.pageNavigation("/reader/CustomerPages/CustomerInfo/UserInfo.fxml", (Stage) UserConfirm.getScene().getWindow(),this.getClass(),"User Home", 550, 400);
     }
 }

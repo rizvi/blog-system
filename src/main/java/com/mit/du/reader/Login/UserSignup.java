@@ -48,7 +48,7 @@ public class UserSignup implements Initializable {
             try{
                 preparedStatement.execute();
                 CommonUtil.showAlert(Alert.AlertType.INFORMATION, "Successful", "Sign-up Successful!");
-                CommonUtil.pageNavigation("UserLogin.fxml", Main.stage,this.getClass(),"Customer Login", 600, 400);
+                CommonUtil.pageNavigation("/reader/Login/UserLogin.fxml", Main.stage,this.getClass(),"Customer Login", 600, 400);
             } catch (SQLException e){
                 CommonUtil.showAlert(Alert.AlertType.ERROR, "Error", "Account already exists with this NID!");
             } finally {
@@ -59,7 +59,7 @@ public class UserSignup implements Initializable {
     }
 
     public void BackToUserLogin(ActionEvent actionEvent) throws IOException {
-        CommonUtil.pageNavigation("UserLogin.fxml", Main.stage,this.getClass(),"User Home", 600, 400);
+        CommonUtil.pageNavigation("/reader/Login/UserLogin.fxml", Main.stage,this.getClass(),"User Home", 600, 400);
     }
     private static final String IDLE_BUTTON_STYLE = "-fx-scale-x: 1; -fx-scale-y: 1; -fx-opacity: 0.8";
     private static final String HOVERED_BUTTON_STYLE = "-fx-scale-x: 1.2; -fx-scale-y: 1.2; -fx-opacity: 1";
