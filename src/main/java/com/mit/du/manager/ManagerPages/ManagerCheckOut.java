@@ -1,4 +1,4 @@
-package main.java.com.mit.du.manager.ManagerPages;
+package com.mit.du.manager.ManagerPages;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -8,9 +8,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
-import main.java.com.mit.du.backend.CommonTask;
-import main.java.com.mit.du.backend.DBConnection;
-import main.java.com.mit.du.backend.tableview.ManagerCheckInDetailsTable;
+import com.mit.du.common.CommonUtil;
+import com.mit.du.common.DBUtil;
+import com.mit.du.common.tableview.ManagerCheckInDetailsTable;
 
 import java.net.URL;
 import java.sql.Connection;
@@ -25,7 +25,7 @@ import java.util.Date;
 import java.util.ResourceBundle;
 
 
-public class ManagerCheckOut extends DBConnection implements Initializable {
+public class ManagerCheckOut extends DBUtil implements Initializable {
 
     public TableView<ManagerCheckInDetailsTable> checkInInfoTable;
     public TableColumn<ManagerCheckInDetailsTable, String> siCol;
@@ -79,7 +79,7 @@ public class ManagerCheckOut extends DBConnection implements Initializable {
         } else {
             //checkOutDatepicker.getEditor().clear();
 //            checkOutDatepicker.setValue(null);
-            CommonTask.showAlert(Alert.AlertType.WARNING, "Warning", "Checked-In Date is empty!");
+            CommonUtil.showAlert(Alert.AlertType.WARNING, "Warning", "Checked-In Date is empty!");
        }
     }
 
@@ -136,14 +136,14 @@ public class ManagerCheckOut extends DBConnection implements Initializable {
     }
 
     public void checkOutBtn(ActionEvent actionEvent) throws SQLException {
-        Connection connection = DBConnection.getConnections();
+        Connection connection = DBUtil.getConnections();
         String checkOutDate = checkOutDatepicker.getValue() + "";
         String daysTotal = daysTotalField.getText();
         String totalPrice = totalPriceField.getText();
         String roomNo = roomNoField.getText();
         String siNo = siNoField.getText();
         if (siNo.equals("") || checkOutDate.equals("null") || daysTotal.isEmpty() || totalPrice.isEmpty()) {
-            CommonTask.showAlert(Alert.AlertType.WARNING, "Error", "Field can't be empty!");
+            CommonUtil.showAlert(Alert.AlertType.WARNING, "Error", "Field can't be empty!");
         } else {
             String sql = "UPDATE CHECKINOUTINFO SET CHECKEDOUT = ?, TOTALDAYS = ?, TOTALPRICE = ? WHERE SI_NO = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
@@ -153,7 +153,7 @@ public class ManagerCheckOut extends DBConnection implements Initializable {
             preparedStatement.setString(4, siNo);
             try {
                 preparedStatement.execute();
-                CommonTask.showAlert(Alert.AlertType.INFORMATION, "Successful", "Check-Out Successful!");
+                CommonUtil.showAlert(Alert.AlertType.INFORMATION, "Successful", "Check-Out Successful!");
                 String sql1 = "UPDATE ROOMINFO SET STATUS = ? WHERE ROOM_NO = ?";
                 PreparedStatement preparedStatement1 = connection.prepareStatement(sql1);
                 preparedStatement1.setString(1, "Available");
@@ -161,9 +161,9 @@ public class ManagerCheckOut extends DBConnection implements Initializable {
                 preparedStatement1.execute();
                 showCheckedInTable();
             } catch (SQLException e) {
-                CommonTask.showAlert(Alert.AlertType.ERROR, "Error", "Exception detected. Probably Sql!");
+                CommonUtil.showAlert(Alert.AlertType.ERROR, "Error", "Exception detected. Probably Sql!");
             } finally {
-                DBConnection.closeConnections();
+                DBUtil.closeConnections();
             }
         }
         clearTextFields();

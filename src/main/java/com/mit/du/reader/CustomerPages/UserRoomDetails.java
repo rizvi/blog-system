@@ -1,4 +1,4 @@
-package main.java.com.mit.du.reader.CustomerPages;
+package com.mit.du.reader.CustomerPages;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -11,8 +11,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import main.java.com.mit.du.backend.DBConnection;
-import main.java.com.mit.du.backend.tableview.CustomerRoomTable;
+import com.mit.du.common.DBUtil;
+import com.mit.du.common.tableview.CustomerRoomTable;
 
 import java.net.URL;
 import java.sql.Connection;
@@ -21,7 +21,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
-public class UserRoomDetails extends DBConnection implements Initializable {
+public class UserRoomDetails extends DBUtil implements Initializable {
 
     @FXML
     private TextField UserSearchRoomStatus;

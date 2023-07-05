@@ -1,4 +1,4 @@
-package main.java.com.mit.du.reader.Login;
+package com.mit.du.reader.Login;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -6,9 +6,9 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
-import main.java.com.mit.du.Main;
-import main.java.com.mit.du.backend.CommonTask;
-import main.java.com.mit.du.backend.DBConnection;
+import com.mit.du.Main;
+import com.mit.du.common.CommonUtil;
+import com.mit.du.common.DBUtil;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
@@ -25,7 +25,7 @@ public class UserSignup implements Initializable {
     public TextField CustomerPhoneField;
     public TextArea CustomerAddressField;
     public ImageView closeWindow;
-    Connection connection = DBConnection.getConnections();
+    Connection connection = DBUtil.getConnections();
     @FXML
     void UserSignUp(ActionEvent event) throws IOException, SQLException {
         String customerName = CustomerNameField.getText();
@@ -35,7 +35,7 @@ public class UserSignup implements Initializable {
         String customerPhone = CustomerPhoneField.getText();
         String customerAddress = CustomerAddressField.getText();
         if (customerName.isEmpty() || customerNID.isEmpty()  || customerPassword.isEmpty() || customerEmail.isEmpty() || customerAddress.isEmpty() || customerPhone.isEmpty()) {
-            CommonTask.showAlert(Alert.AlertType.WARNING, "Error", "Field can't be empty!");
+            CommonUtil.showAlert(Alert.AlertType.WARNING, "Error", "Field can't be empty!");
         } else {
             String sql = "INSERT INTO CUSTOMERINFO(NAME, NID, PASSWORD, EMAIL, PHONE, ADDRESS) VALUES(?,?,?,?,?,?)";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
@@ -47,19 +47,19 @@ public class UserSignup implements Initializable {
             preparedStatement.setString(6, customerAddress);
             try{
                 preparedStatement.execute();
-                CommonTask.showAlert(Alert.AlertType.INFORMATION, "Successful", "Sign-up Successful!");
-                CommonTask.pageNavigation("UserLogin.fxml", Main.stage,this.getClass(),"Customer Login", 600, 400);
+                CommonUtil.showAlert(Alert.AlertType.INFORMATION, "Successful", "Sign-up Successful!");
+                CommonUtil.pageNavigation("UserLogin.fxml", Main.stage,this.getClass(),"Customer Login", 600, 400);
             } catch (SQLException e){
-                CommonTask.showAlert(Alert.AlertType.ERROR, "Error", "Account already exists with this NID!");
+                CommonUtil.showAlert(Alert.AlertType.ERROR, "Error", "Account already exists with this NID!");
             } finally {
-                DBConnection.closeConnections();
+                DBUtil.closeConnections();
             }
         }
 
     }
 
     public void BackToUserLogin(ActionEvent actionEvent) throws IOException {
-        CommonTask.pageNavigation("UserLogin.fxml", Main.stage,this.getClass(),"User Home", 600, 400);
+        CommonUtil.pageNavigation("UserLogin.fxml", Main.stage,this.getClass(),"User Home", 600, 400);
     }
     private static final String IDLE_BUTTON_STYLE = "-fx-scale-x: 1; -fx-scale-y: 1; -fx-opacity: 0.8";
     private static final String HOVERED_BUTTON_STYLE = "-fx-scale-x: 1.2; -fx-scale-y: 1.2; -fx-opacity: 1";

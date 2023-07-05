@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="880.0" styleClass="bodybg" stylesheets="@CSS/imageSetAdmin.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.com.mit.du.zadmin.AdminPages.AdminAddEmployee">
+<AnchorPane prefHeight="600.0" prefWidth="880.0" styleClass="bodybg" stylesheets="@CSS/imageSetAdmin.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mit.du.zadmin.AdminPages.AdminAddEmployee">
    <children>
       <Pane layoutX="196.0" layoutY="36.0" prefHeight="451.0" prefWidth="450.0" style="-fx-background-color: rgba(76, 75, 80, 0.4); -fx-background-radius: 25;" />
       <Label layoutX="241.0" layoutY="114.0" prefHeight="25.0" prefWidth="110.0" text="Full Name        :">

@@ -1,4 +1,4 @@
-package main.java.com.mit.du.reader.CustomerPages;
+package com.mit.du.reader.CustomerPages;
 
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
@@ -18,8 +18,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.util.Callback;
-import main.java.com.mit.du.backend.DBConnection;
-import main.java.com.mit.du.backend.tableview.CustomerCheckOutTable;
+import com.mit.du.common.DBUtil;
+import com.mit.du.common.tableview.CustomerCheckOutTable;
 
 import java.awt.*;
 import java.io.File;
@@ -32,9 +32,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
-import static main.java.com.mit.du.reader.Login.UserLogin.currentCustomerNID;
+import static com.mit.du.reader.Login.UserLogin.currentCustomerNID;
 
-public class UserCheckOutDetails extends DBConnection implements Initializable {
+public class UserCheckOutDetails extends DBUtil implements Initializable {
 
     @FXML
     private TableView<CustomerCheckOutTable> UserCheckOutDetailsTable;

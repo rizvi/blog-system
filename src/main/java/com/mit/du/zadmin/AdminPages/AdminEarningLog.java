@@ -1,4 +1,4 @@
-package main.java.com.mit.du.zadmin.AdminPages;
+package com.mit.du.zadmin.AdminPages;
 
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
@@ -20,8 +20,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.util.Callback;
-import main.java.com.mit.du.backend.DBConnection;
-import main.java.com.mit.du.backend.tableview.AdminEarningTable;
+import com.mit.du.common.DBUtil;
+import com.mit.du.common.tableview.AdminEarningTable;
 
 import java.net.URL;
 import java.sql.Connection;
@@ -59,7 +59,7 @@ public class AdminEarningLog implements Initializable {
 
     public void showEarningLog() {
         TABLEROW.clear();
-        Connection connection = DBConnection.getConnections();
+        Connection connection = DBUtil.getConnections();
         try {
             if (!connection.isClosed()) {
                 String sql = "SELECT * FROM CHECKINOUTINFO WHERE CHECKEDOUT IS NOT NULL ORDER BY SI_NO DESC";
@@ -83,7 +83,7 @@ public class AdminEarningLog implements Initializable {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         } finally {
-            DBConnection.closeConnections();
+            DBUtil.closeConnections();
         }
     }
 

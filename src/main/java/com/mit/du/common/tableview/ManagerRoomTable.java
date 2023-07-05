@@ -1,4 +1,4 @@
-package main.java.com.mit.du.backend.tableview;
+package com.mit.du.common.tableview;
 
 public class ManagerRoomTable {
     String ROOMNO;

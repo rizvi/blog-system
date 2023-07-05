@@ -1,4 +1,4 @@
-package main.java.com.mit.du.backend.tableview;
+package com.mit.du.common.tableview;
 
 import javafx.collections.ObservableList;
 import javafx.event.EventHandler;

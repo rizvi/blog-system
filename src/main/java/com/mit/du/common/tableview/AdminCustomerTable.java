@@ -1,7 +1,6 @@
-package main.java.com.mit.du.backend.tableview;
+package com.mit.du.common.tableview;
 
-public class AdminEmployeeTable {
-
+public class AdminCustomerTable {
     private String NID;
     private String Name;
     private String Email;
@@ -9,14 +8,14 @@ public class AdminEmployeeTable {
     private String Address;
     private String Pass;
 
-    public AdminEmployeeTable(String NID, String Name, String Email, String Phone, String Address, String Pass){
-        this.NID = NID;
-        this.Name = Name;
-        this.Email = Email;
-        this.Phone = Phone;
-        this.Address = Address;
-        this.Pass = Pass;
-    }
+public AdminCustomerTable(String NID, String Name, String Email, String Phone, String Address, String Pass){
+    this.NID = NID;
+    this.Name = Name;
+    this.Email = Email;
+    this.Phone = Phone;
+    this.Address = Address;
+    this.Pass = Pass;
+}
 
     public String getNID() {
         return NID;
@@ -65,7 +64,4 @@ public class AdminEmployeeTable {
     public void setPass(String pass) {
         Pass = pass;
     }
-
-
-
 }
