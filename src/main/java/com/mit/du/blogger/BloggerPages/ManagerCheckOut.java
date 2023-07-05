@@ -69,10 +69,13 @@ public class ManagerCheckOut extends DBUtil implements Initializable {
             long days = (dayDifference(checkOutDate, checkInDate))+1;
             daysTotalField.setText(days+"");
             String priceDay = priceDayField.getText();
-            boolean isNumeric = priceDay.chars().allMatch(Character::isDigit);
+            System.out.println("Days: "+priceDay);
+//            boolean isNumeric = priceDay.chars().allMatch(Character::isDigit);
+            boolean isNumeric = checkNumeric(priceDay);
+            System.out.println("is Numeric: "+isNumeric);
             if(isNumeric) {
-                long pricePerDay = Long.parseLong(priceDay);
-                long totalPrice = pricePerDay * days;
+                long unitPrice = (long)Double.parseDouble(priceDay);
+                long totalPrice = unitPrice * days;
                 totalPriceField.setText(totalPrice+"");
             }
 
@@ -81,6 +84,18 @@ public class ManagerCheckOut extends DBUtil implements Initializable {
 //            checkOutDatepicker.setValue(null);
             CommonUtil.showAlert(Alert.AlertType.WARNING, "Warning", "Checked-In Date is empty!");
        }
+    }
+
+    private boolean checkNumeric(String priceDay) {
+        if (priceDay == null) {
+            return false;
+        }
+        try {
+            double d = Double.parseDouble(priceDay);
+        } catch (NumberFormatException nfe) {
+            return false;
+        }
+        return true;
     }
 
     private long dayDifference(String checkOut, String checkIn) throws ParseException {
