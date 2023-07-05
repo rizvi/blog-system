@@ -1,4 +1,4 @@
-package main.java.com.mit.du.reader.Login;
+package com.mit.du.reader.Login;
 
 import com.jfoenix.controls.JFXDialog;
 import javafx.event.ActionEvent;
@@ -9,9 +9,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
-import main.java.com.mit.du.Main;
-import main.java.com.mit.du.backend.CommonTask;
-import main.java.com.mit.du.backend.DBConnection;
+import com.mit.du.Main;
+import com.mit.du.common.CommonUtil;
+import com.mit.du.common.DBUtil;
 
 import java.io.IOException;
 import java.net.URL;
@@ -33,15 +33,15 @@ public class UserLogin implements Initializable {
 
     @FXML
     public void UserLoginn(ActionEvent actionEvent) throws IOException, SQLException {
-        Connection connection = DBConnection.getConnections();
+        Connection connection = DBUtil.getConnections();
         String customerNID = customerNIDField.getText();
         currentCustomerNID = customerNID;
         String customerPass = customerPassField.getText();
         try {
 
             if (customerNID.isEmpty() == true || customerPass.isEmpty() == true) {
-//                CommonTask.showAlert(Alert.AlertType.WARNING, "Error", "Field Can't be Empty!");
-                CommonTask.showJFXAlert(rootPane, rootAnchorPane, "warning", "Warning!", "Field Can't be Empty!", JFXDialog.DialogTransition.CENTER);
+//                CommonUtil.showAlert(Alert.AlertType.WARNING, "Error", "Field Can't be Empty!");
+                CommonUtil.showJFXAlert(rootPane, rootAnchorPane, "warning", "Warning!", "Field Can't be Empty!", JFXDialog.DialogTransition.CENTER);
             } else {
                 String sql = "SELECT * FROM CUSTOMERINFO WHERE NID = ? AND PASSWORD = ?";
                 PreparedStatement preparedStatement = connection.prepareStatement(sql);
@@ -49,25 +49,25 @@ public class UserLogin implements Initializable {
                 preparedStatement.setString(2, customerPass);
                 ResultSet resultSet = preparedStatement.executeQuery();
                 if (resultSet.next()) {
-                    //CommonTask.showAlert(Alert.AlertType.INFORMATION, "Login Success!", "Successfully Logged In!");
-                    CommonTask.pageNavigation("/main/java/com/mit/du/reader/CustomerPages/UserMain.fxml", Main.stage, this.getClass(), "User Dashboard", 800, 400);
+                    //CommonUtil.showAlert(Alert.AlertType.INFORMATION, "Login Success!", "Successfully Logged In!");
+                    CommonUtil.pageNavigation("/reader/CustomerPages/UserMain.fxml", Main.stage, this.getClass(), "User Dashboard", 800, 400);
                 } else {
-                    CommonTask.showJFXAlert(rootPane, rootAnchorPane, "warning", "Login Failed!", "Wrong UserNid/Password !", JFXDialog.DialogTransition.CENTER);
+                    CommonUtil.showJFXAlert(rootPane, rootAnchorPane, "warning", "Login Failed!", "Wrong UserNid/Password !", JFXDialog.DialogTransition.CENTER);
                 }
             }
         } catch (SQLException e){
             e.printStackTrace();
         } finally {
-            DBConnection.closeConnections();
+            DBUtil.closeConnections();
         }
     }
     @FXML
     public void UserSignup(ActionEvent mouseEvent) throws IOException {
-        CommonTask.pageNavigation("UserSignup.fxml", Main.stage ,this.getClass(),"User Signup", 600, 400);
+        CommonUtil.pageNavigation("UserSignup.fxml", Main.stage ,this.getClass(),"User Signup", 600, 400);
     }
 @FXML
     public void BackToMain(ActionEvent mouseEvent) throws IOException {
-        CommonTask.pageNavigation("/main/java/com/mit/du/sample.fxml", Main.stage,this.getClass(),"Blog Management System", 600, 400);
+        CommonUtil.pageNavigation("/main/java/com/mit/du/sample.fxml", Main.stage,this.getClass(),"Blog Management System", 600, 400);
     }
 
     @Override

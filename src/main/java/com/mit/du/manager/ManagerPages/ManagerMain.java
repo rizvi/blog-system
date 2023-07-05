@@ -1,4 +1,4 @@
-package main.java.com.mit.du.manager.ManagerPages;
+package com.mit.du.manager.ManagerPages;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;

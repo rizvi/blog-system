@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `hotelmanagementsystem`
+-- Database: `blogmanagementsystem`
 --
 
 -- --------------------------------------------------------
@@ -100,9 +100,9 @@ CREATE TABLE IF NOT EXISTS `customerinfo` (
 --
 
 INSERT INTO `customerinfo` (`NAME`, `NID`, `PASSWORD`, `EMAIL`, `PHONE`, `ADDRESS`) VALUES
-('Mazharul Islam', '123', '123456', 'mazhar@gmail.com', '01750265482', 'Kapasia, Gazipur'),
-('Abdul Matin', '456', '123456', 'matin@gmail.com', '01915365895', 'Kolabagan, Dhaka'),
-('mursalin', 'mursalin', 'mursalin', 'mursalin@gmail.com', '01222222', 'Dhaka, Bangladesh');
+('Abu Zakir Rizvi', 'rizvi', 'rizvi123', 'rizvi@gmail.com', '01719370567', 'Dhaka, Bangladesh'),
+('Abdur Rahim', 'rahim', 'rahim123', 'rahim@gmail.com', '01719370567', 'Dhaka, Bangladesh'),
+('Abdul Karim', 'karim', 'karim123', 'karim@gmail.com', '01719370567', 'Dhaka, Bangladesh');
 
 -- --------------------------------------------------------
 

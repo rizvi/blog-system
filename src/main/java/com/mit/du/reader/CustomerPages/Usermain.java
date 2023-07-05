@@ -1,4 +1,4 @@
-package main.java.com.mit.du.reader.CustomerPages;
+package com.mit.du.reader.CustomerPages;
 
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import javafx.event.ActionEvent;
@@ -29,7 +29,7 @@ public class Usermain implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        windowLoadStackPane("UserHome.fxml");
+        windowLoadStackPane("/reader/CustomerPages/UserHome.fxml");
         closeWindow.setOnMouseClicked(event -> {
             System.exit(0);
         });
@@ -76,18 +76,18 @@ public class Usermain implements Initializable {
     }
 
     public void GoHome(ActionEvent actionEvent) {
-        windowLoadStackPane("UserHome.fxml");
+        windowLoadStackPane("/reader/CustomerPages/UserHome.fxml");
     }
 
     public void GoRoomDetails(ActionEvent actionEvent) {
-        windowLoad("UserRoomDetails.fxml");
+        windowLoad("/reader/CustomerPages/UserRoomDetails.fxml");
     }
 
     public void GoCheckIn(ActionEvent actionEvent) {
-        windowLoadStackPane("UserCheckIn.fxml");
+        windowLoadStackPane("/reader/CustomerPages/UserCheckIn.fxml");
     }
 
     public void GoCheckDetails(ActionEvent actionEvent) {
-        windowLoad("UserCheckOutDetails.fxml");
+        windowLoad("/reader/CustomerPages/UserCheckOutDetails.fxml");
     }
 }

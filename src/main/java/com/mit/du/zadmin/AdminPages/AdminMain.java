@@ -1,4 +1,4 @@
-package main.java.com.mit.du.zadmin.AdminPages;
+package com.mit.du.zadmin.AdminPages;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;

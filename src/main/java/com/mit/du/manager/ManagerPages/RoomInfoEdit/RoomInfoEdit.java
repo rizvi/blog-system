@@ -1,4 +1,4 @@
-package main.java.com.mit.du.manager.ManagerPages.RoomInfoEdit;
+package com.mit.du.manager.ManagerPages.RoomInfoEdit;
 
 import com.jfoenix.controls.JFXComboBox;
 import javafx.event.ActionEvent;
@@ -6,7 +6,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import main.java.com.mit.du.backend.DBConnection;
+import com.mit.du.common.DBUtil;
 
 import java.net.URL;
 import java.sql.Connection;
@@ -30,7 +30,7 @@ public class RoomInfoEdit implements Initializable {
     }
 
     public void saveBtn(ActionEvent event) {
-        Connection connection = DBConnection.getConnections();
+        Connection connection = DBUtil.getConnections();
         try {
             if (!connection.isClosed()){
                 String sql = "UPDATE RoomInfo SET TYPE = ?, CAPACITY = ?, PRICE_DAY = ?, STATUS = ? where ROOM_NO = ?";
@@ -45,7 +45,7 @@ public class RoomInfoEdit implements Initializable {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }finally {
-            DBConnection.closeConnections();
+            DBUtil.closeConnections();
         }
         Stage stage = (Stage) UserConfirm.getScene().getWindow();
         stage.close();

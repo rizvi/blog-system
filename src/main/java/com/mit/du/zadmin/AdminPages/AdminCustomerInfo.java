@@ -1,4 +1,4 @@
-package main.java.com.mit.du.zadmin.AdminPages;
+package com.mit.du.zadmin.AdminPages;
 
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
@@ -18,10 +18,10 @@ import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Callback;
-import main.java.com.mit.du.backend.CommonTask;
-import main.java.com.mit.du.backend.DBConnection;
-import main.java.com.mit.du.backend.tableview.AdminCustomerTable;
-import main.java.com.mit.du.zadmin.AdminPages.EditCustomerEmployee.CustomerInfoEdit;
+import com.mit.du.common.CommonUtil;
+import com.mit.du.common.DBUtil;
+import com.mit.du.common.tableview.AdminCustomerTable;
+import com.mit.du.zadmin.AdminPages.EditCustomerEmployee.CustomerInfoEdit;
 
 import java.io.IOException;
 import java.net.URL;
@@ -32,10 +32,10 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 import java.util.concurrent.atomic.AtomicReference;
 
-import static main.java.com.mit.du.Main.xxx;
-import static main.java.com.mit.du.Main.yyy;
+import static com.mit.du.Main.xxx;
+import static com.mit.du.Main.yyy;
 
-public class AdminCustomerInfo extends DBConnection implements Initializable{
+public class AdminCustomerInfo extends DBUtil implements Initializable{
     public TableView<AdminCustomerTable> customerTable;
     public TableColumn<AdminCustomerTable, String> nidCol;
     public TableColumn<AdminCustomerTable, String> nameCol;
@@ -257,7 +257,7 @@ public class AdminCustomerInfo extends DBConnection implements Initializable{
                 PreparedStatement statement = connection.prepareStatement(sql);
                 statement.setString(1, adminCustomerTable.getNID());
                 statement.execute();
-                CommonTask.showAlert(Alert.AlertType.INFORMATION, "Delete Operation Successful", "Customer Named " + adminCustomerTable.getName() + " is deleted from database!");
+                CommonUtil.showAlert(Alert.AlertType.INFORMATION, "Delete Operation Successful", "Customer Named " + adminCustomerTable.getName() + " is deleted from database!");
 
                 //showTableInformation();
                 customerTable.getItems().remove(adminCustomerTable);

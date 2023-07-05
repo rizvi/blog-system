@@ -1,4 +1,4 @@
-package main.java.com.mit.du.zadmin.AdminPages;
+package com.mit.du.zadmin.AdminPages;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -6,7 +6,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.chart.PieChart;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
-import main.java.com.mit.du.backend.DBConnection;
+import com.mit.du.common.DBUtil;
 
 import java.net.URL;
 import java.sql.Connection;
@@ -16,7 +16,7 @@ import java.sql.SQLException;
 import java.util.Calendar;
 import java.util.ResourceBundle;
 
-public class AdminTotalEarnings extends DBConnection implements Initializable {
+public class AdminTotalEarnings extends DBUtil implements Initializable {
     public Label earnMonth;
     public Label earnYear;
     public Label earnAll;
