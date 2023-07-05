@@ -86,9 +86,9 @@ public class UserRoomDetails extends DBUtil implements Initializable {
                 }
                 String searchKeyword = newValue.toLowerCase();
                 if (search.getROOMNO().toLowerCase().indexOf(searchKeyword) != -1 ) {
-                    return true; // Filter matches Room No.
+                    return true; // Filter matches Course ID.
                 } else if (search.getTYPE().toLowerCase().indexOf(searchKeyword) != -1 ) {
-                    return true; // Filter matches Room Type.
+                    return true; // Filter matches Course Name.
                 } else if (search.getCAPACITY().toLowerCase().indexOf(searchKeyword) != -1 ) {
                     return true; // Filter matches Room Capacity Column
                 } else if (search.getPRICEDAY().toLowerCase().indexOf(searchKeyword) != -1 ) {

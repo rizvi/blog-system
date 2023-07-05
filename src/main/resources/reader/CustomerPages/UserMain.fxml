@@ -31,7 +31,7 @@
                                     <Insets right="39.0" />
                                  </padding>
                               </JFXButton>
-                              <JFXButton fx:id="roomDetailsID" alignment="CENTER" buttonType="RAISED" graphicTextGap="12.0" onAction="#GoRoomDetails" prefHeight="58.0" prefWidth="138.0" stylesheets="@CSS/CustomerMainButtonStyle.css" text="Room Details">
+                              <JFXButton fx:id="roomDetailsID" alignment="CENTER" buttonType="RAISED" graphicTextGap="12.0" onAction="#GoRoomDetails" prefHeight="58.0" prefWidth="138.0" stylesheets="@CSS/CustomerMainButtonStyle.css" text="Course List">
                                  <graphic>
                                     <FontAwesomeIconView glyphName="SEARCH" size="19" />
                                  </graphic>
@@ -39,7 +39,7 @@
                                     <Insets right="-4.0" />
                                  </padding>
                               </JFXButton>
-                              <JFXButton fx:id="checkInID" alignment="CENTER" buttonType="RAISED" graphicTextGap="12.0" onAction="#GoCheckIn" prefHeight="58.0" prefWidth="138.0" stylesheets="@CSS/CustomerMainButtonStyle.css" text="Check-In">
+                              <JFXButton fx:id="checkInID" alignment="CENTER" buttonType="RAISED" graphicTextGap="12.0" onAction="#GoCheckIn" prefHeight="58.0" prefWidth="138.0" stylesheets="@CSS/CustomerMainButtonStyle.css" text="Buy Course">
                                  <opaqueInsets>
                                     <Insets bottom="9.0" left="13.0" right="13.0" top="17.0" />
                                  </opaqueInsets>
@@ -50,7 +50,7 @@
                                     <Insets right="24.0" />
                                  </padding>
                               </JFXButton>
-                              <JFXButton fx:id="checkInOutID" alignment="CENTER" buttonType="RAISED" graphicTextGap="12.0" onAction="#GoCheckDetails" prefHeight="58.0" prefWidth="138.0" stylesheets="@CSS/CustomerMainButtonStyle.css" text="Check History">
+                              <JFXButton fx:id="checkInOutID" alignment="CENTER" buttonType="RAISED" graphicTextGap="12.0" onAction="#GoCheckDetails" prefHeight="58.0" prefWidth="138.0" stylesheets="@CSS/CustomerMainButtonStyle.css" text="Buy History">
                                  <font>
                                     <Font size="11.0" />
                                  </font>

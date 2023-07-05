@@ -14,10 +14,10 @@
       <TableView fx:id="UserCheckOutDetailsTable" layoutX="19.0" layoutY="59.0" prefHeight="294.0" prefWidth="608.0">
         <columns>
           <TableColumn fx:id="nidCol" prefWidth="90.0" text="NID" />
-          <TableColumn fx:id="roomNoCol" prefWidth="77.0" text="Room No" />
-            <TableColumn fx:id="checkedInCol" prefWidth="96.0" text="Checked In" />
-            <TableColumn fx:id="checkedOutCol" prefWidth="96.0" text="Checked Out" />
-            <TableColumn fx:id="priceDayCol" prefWidth="84.0" text="Price/Day(tk)" />
+          <TableColumn fx:id="roomNoCol" prefWidth="77.0" text="Course ID" />
+            <TableColumn fx:id="checkedInCol" prefWidth="96.0" text="Enrollment" />
+            <TableColumn fx:id="checkedOutCol" prefWidth="96.0" text="Finish" />
+            <TableColumn fx:id="priceDayCol" prefWidth="84.0" text="Actual Price(tk)" />
             <TableColumn fx:id="totalPriceCol" prefWidth="91.0" text="Total Price(tk)" />
             <TableColumn fx:id="slipCol" prefWidth="72.0" text="Slip" />
         </columns>

@@ -42,7 +42,7 @@ public class BloggerLogin implements Initializable {
 				ResultSet resultSet = preparedStatement.executeQuery();
 				if (resultSet.next()) {
 					CommonUtil.showAlert(Alert.AlertType.INFORMATION, "Login Success!", "Successfully Logged In!");
-					CommonUtil.pageNavigation("/blogger/BloggerPages/BloggerMain.fxml", Main.stage, this.getClass(), "Manager Dashboard", 800, 600);
+					CommonUtil.pageNavigation("/blogger/BloggerPages/BloggerMain.fxml", Main.stage, this.getClass(), "Blogger Dashboard", 800, 600);
 				} else {
 					CommonUtil.showAlert(Alert.AlertType.ERROR, "Login Failed!", "Incorrect NID or Password!");
 				}

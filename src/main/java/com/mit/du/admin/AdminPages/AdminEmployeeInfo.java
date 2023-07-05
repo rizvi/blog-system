@@ -256,7 +256,7 @@ public class AdminEmployeeInfo extends DBUtil implements Initializable {
                 PreparedStatement statement = connection.prepareStatement(sql);
                 statement.setString(1, adminEmployeeTable.getNID());
                 statement.execute();
-                CommonUtil.showAlert(Alert.AlertType.INFORMATION, "Delete Operation Successful", "Employee Named " + adminEmployeeTable.getName() + " is deleted from database!");
+                CommonUtil.showAlert(Alert.AlertType.INFORMATION, "Delete Operation Successful", "Blogger Named " + adminEmployeeTable.getName() + " is deleted from database!");
 
                 //showTableInformation();
                 employeeTable.getItems().remove(adminEmployeeTable);

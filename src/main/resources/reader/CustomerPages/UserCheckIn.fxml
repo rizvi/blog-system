@@ -16,12 +16,12 @@
          <children>
             <Pane layoutX="53.0" layoutY="25.0" prefHeight="323.0" prefWidth="532.0" style="-fx-background-color: rgba(76, 75, 80, 0.4); -fx-background-radius: 25;">
                <children>
-                  <Label layoutX="282.0" layoutY="54.0" prefHeight="19.0" prefWidth="94.0" text="Room number:">
+                  <Label layoutX="282.0" layoutY="54.0" prefHeight="19.0" prefWidth="94.0" text="Course ID:">
                      <font>
                         <Font size="13.0" />
                      </font>
                   </Label>
-                  <Label layoutX="283.0" layoutY="89.0" prefHeight="25.0" prefWidth="94.0" text="Room Type    :">
+                  <Label layoutX="283.0" layoutY="89.0" prefHeight="25.0" prefWidth="94.0" text="Course Name    :">
                      <font>
                         <Font size="13.0" />
                      </font>
@@ -41,7 +41,7 @@
                         <Font size="13.0" />
                      </font>
                   </Label>
-                  <Label layoutX="283.0" layoutY="172.0" prefHeight="25.0" prefWidth="94.0" text="Price/Day       :">
+                  <Label layoutX="283.0" layoutY="172.0" prefHeight="25.0" prefWidth="94.0" text="Actual Price       :">
                      <font>
                         <Font size="13.0" />
                      </font>
@@ -101,12 +101,12 @@
                         <Font size="13.0" />
                      </font>
                   </Label>
-                  <Label layoutX="177.0" layoutY="228.0" prefHeight="19.0" prefWidth="94.0" text="Check in Date:">
+                  <Label layoutX="177.0" layoutY="228.0" prefHeight="19.0" prefWidth="94.0" text="Enrollment Date:">
                      <font>
                         <Font size="13.0" />
                      </font>
                   </Label>
-                  <JFXButton layoutX="241.0" layoutY="272.0" onAction="#UserCheckInSubmitBtn" prefHeight="31.0" prefWidth="77.0" style="-fx-background-color: #82eeff; -fx-background-radius: 6; -fx-border-color: gray; -fx-border-radius: 6;" stylesheets="@CSS/userHomeButtonHover.css" text="Check-In" />
+                  <JFXButton layoutX="241.0" layoutY="272.0" onAction="#UserCheckInSubmitBtn" prefHeight="31.0" prefWidth="77.0" style="-fx-background-color: #82eeff; -fx-background-radius: 6; -fx-border-color: gray; -fx-border-radius: 6;" stylesheets="@CSS/userHomeButtonHover.css" text="Enroll" />
                   <JFXComboBox fx:id="userRoomChoicebox" labelFloat="true" layoutX="375.0" layoutY="50.0" prefHeight="25.0" prefWidth="86.0" styleClass="combo-box" />
                   <DatePicker fx:id="UserCheckIndate" layoutX="281.0" layoutY="224.0" prefHeight="25.0" prefWidth="133.0" />
                </children>

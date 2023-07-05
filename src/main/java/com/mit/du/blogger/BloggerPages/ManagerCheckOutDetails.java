@@ -177,9 +177,9 @@ public class ManagerCheckOutDetails implements Initializable {
 
         String title = "Blog Management System Slip\n\n";
         String nid = "Blogger NID: " + managerCheckOutTable.getNid() + "\n";
-        String roomNo = "Room No: " + managerCheckOutTable.getRoomno() + "\n";
-        String checkedIn = "Checked In Date: " + managerCheckOutTable.getCheckedin() + "\n";
-        String checkedOut = "Checked Out Date: " + managerCheckOutTable.getCheckedout() + "\n";
+        String roomNo = "Course ID: " + managerCheckOutTable.getRoomno() + "\n";
+        String checkedIn = "Enrollment Date: " + managerCheckOutTable.getCheckedin() + "\n";
+        String checkedOut = "Finish Date: " + managerCheckOutTable.getCheckedout() + "\n";
         String priceDay = "Price per day: " + managerCheckOutTable.getPriceday() + " Taka\n";
         String totalBill = "Total Bill: " + managerCheckOutTable.getTotalprice() + " Taka\n";
         String totalParagraph = title + nid + roomNo + checkedIn + checkedOut + priceDay + totalBill;

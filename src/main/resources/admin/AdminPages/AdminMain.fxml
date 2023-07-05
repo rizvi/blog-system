@@ -26,17 +26,17 @@
                               <Insets right="44.0" />
                            </padding>
                         </JFXButton>
-                        <JFXButton layoutX="10.0" layoutY="10.0" onAction="#AddEmployee" prefHeight="25.0" prefWidth="140.0" text="Add Employee">
+                        <JFXButton layoutX="10.0" layoutY="10.0" onAction="#AddEmployee" prefHeight="25.0" prefWidth="140.0" text="Add Blogger">
                            <graphic>
                               <FontAwesomeIconView glyphName="USER_PLUS" size="19" />
                            </graphic>
                         </JFXButton>
-                        <JFXButton layoutX="10.0" layoutY="35.0" onAction="#AdminEmployeeInfo" prefHeight="25.0" prefWidth="140.0" text="Employee Info">
+                        <JFXButton layoutX="10.0" layoutY="35.0" onAction="#AdminEmployeeInfo" prefHeight="25.0" prefWidth="140.0" text="Blogger Details">
                            <graphic>
                               <FontAwesomeIconView glyphName="GITHUB_ALT" size="19" />
                            </graphic>
                         </JFXButton>
-                        <JFXButton layoutX="10.0" layoutY="60.0" onAction="#AdminCustomerInfo" prefHeight="25.0" prefWidth="140.0" text="Customer Info">
+                        <JFXButton layoutX="10.0" layoutY="60.0" onAction="#AdminCustomerInfo" prefHeight="25.0" prefWidth="140.0" text="Reader Details">
                            <graphic>
                               <FontAwesomeIconView glyphName="USERS" size="19" />
                            </graphic>

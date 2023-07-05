@@ -10,12 +10,12 @@
       <TextField layoutX="345.0" layoutY="29.0" promptText="Search Earning Info" styleClass="searchBox" />
       <TableView fx:id="earningLogTable" layoutX="14.0" layoutY="70.0" prefHeight="485.0" prefWidth="807.0">
         <columns>
-          <TableColumn fx:id="nidCol" prefWidth="87.0" text="NID" />
-          <TableColumn fx:id="roomNoCol" prefWidth="84.0" text="Room No" />
-            <TableColumn fx:id="roomTypeCol" prefWidth="104.0" text="Room Type" />
-            <TableColumn fx:id="checkedInCol" prefWidth="103.0" text="Checked In" />
-            <TableColumn fx:id="checkedOutCol" prefWidth="113.0" text="Checked Out" />
-            <TableColumn fx:id="priceDayCol" prefWidth="116.0" text="Price/Day" />
+          <TableColumn fx:id="nidCol" prefWidth="87.0" text="Username" />
+          <TableColumn fx:id="roomNoCol" prefWidth="84.0" text="Course ID" />
+            <TableColumn fx:id="roomTypeCol" prefWidth="104.0" text="Course Name" />
+            <TableColumn fx:id="checkedInCol" prefWidth="103.0" text="Enrollment" />
+            <TableColumn fx:id="checkedOutCol" prefWidth="113.0" text="Finish" />
+            <TableColumn fx:id="priceDayCol" prefWidth="116.0" text="Price" />
             <TableColumn fx:id="totalPriceCol" prefWidth="112.0" text="Total Price" />
             <TableColumn fx:id="slipCol" prefWidth="86.0" text="Slip" />
         </columns>

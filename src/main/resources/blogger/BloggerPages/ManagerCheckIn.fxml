@@ -16,13 +16,13 @@
       <Pane layoutX="27.0" layoutY="317.0" prefHeight="247.0" prefWidth="586.0" style="-fx-background-color: rgba(76, 75, 80, 0.5); -fx-background-radius: 25;" />
       <Pane prefHeight="570.0" prefWidth="640.0">
          <children>
-            <Label layoutX="271.0" layoutY="317.0" prefHeight="30.0" prefWidth="112.0" text="Check In Info">
+            <Label layoutX="271.0" layoutY="317.0" prefHeight="30.0" prefWidth="112.0" text="Enroll Info">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <TextField layoutX="236.0" layoutY="14.0" promptText="Search Customer Info" styleClass="searchBox" />
-            <JFXButton buttonType="RAISED" layoutX="291.0" layoutY="518.0" onAction="#checkInButton" prefHeight="31.0" prefWidth="77.0" text="Check-In" />
+            <TextField layoutX="236.0" layoutY="14.0" promptText="Search Reader Info" styleClass="searchBox" />
+            <JFXButton buttonType="RAISED" layoutX="291.0" layoutY="518.0" onAction="#checkInButton" prefHeight="31.0" prefWidth="77.0" text="Enroll" />
             <Label layoutX="74.0" layoutY="352.0" text="NID No  :">
                <font>
                   <Font size="14.0" />
@@ -48,22 +48,22 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label layoutX="331.0" layoutY="352.0" text="Room No        :">
+            <Label layoutX="331.0" layoutY="352.0" text="Course ID        :">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label layoutX="331.0" layoutY="383.0" text="Room Type     :">
+            <Label layoutX="331.0" layoutY="383.0" text="Course Name     :">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label layoutX="332.0" layoutY="418.0" text="Bed Capacity  :">
+            <Label layoutX="332.0" layoutY="418.0" text="Capacity  :">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label layoutX="332.0" layoutY="485.0" text="Check In Date :">
+            <Label layoutX="332.0" layoutY="485.0" text="Enrollment Date :">
                <font>
                   <Font size="14.0" />
                </font>
@@ -104,7 +104,7 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label layoutX="332.0" layoutY="452.0" text="Price/Day        :">
+            <Label layoutX="332.0" layoutY="452.0" text="Actual Price        :">
                <font>
                   <Font size="14.0" />
                </font>
@@ -118,8 +118,8 @@
          </children></Pane>
       <TableView fx:id="customerTable" layoutX="8.0" layoutY="50.0" onMouseClicked="#onSelect" prefHeight="247.0" prefWidth="620.0">
         <columns>
-          <TableColumn fx:id="nidCol" prefWidth="105.0" text="NID " />
-          <TableColumn fx:id="nameCol" prefWidth="131.0" text="Customer Name" />
+          <TableColumn fx:id="nidCol" prefWidth="105.0" text="Useranme " />
+          <TableColumn fx:id="nameCol" prefWidth="131.0" text="Reader Name" />
             <TableColumn fx:id="phoneCol" prefWidth="111.0" text="Phone" />
             <TableColumn fx:id="emailCol" prefWidth="129.0" text="Email" />
             <TableColumn fx:id="addressCol" maxWidth="319.0" prefWidth="142.0" text="Address" />
