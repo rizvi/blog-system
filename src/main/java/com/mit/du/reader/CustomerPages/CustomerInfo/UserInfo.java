@@ -56,7 +56,7 @@ public class UserInfo implements Initializable {
     @FXML
     void UserInfoEdit(ActionEvent event) throws IOException {
         editedFlag = false;
-        CommonUtil.pageNavigation("/main/java/com/mit/du/reader/CustomerPages/CustomerInfo/UserInfoEdit.fxml", (Stage) UserBackToHome.getScene().getWindow(),this.getClass(),"User Home", 550, 400);
+        CommonUtil.pageNavigation("/reader/CustomerPages/CustomerInfo/UserInfoEdit.fxml", (Stage) UserBackToHome.getScene().getWindow(),this.getClass(),"User Home", 550, 400);
     }
 
     @Override

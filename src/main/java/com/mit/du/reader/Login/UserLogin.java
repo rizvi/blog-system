@@ -63,11 +63,11 @@ public class UserLogin implements Initializable {
     }
     @FXML
     public void UserSignup(ActionEvent mouseEvent) throws IOException {
-        CommonUtil.pageNavigation("UserSignup.fxml", Main.stage ,this.getClass(),"User Signup", 600, 400);
+        CommonUtil.pageNavigation("/reader/Login/UserSignup.fxml", Main.stage ,this.getClass(),"User Signup", 600, 400);
     }
 @FXML
     public void BackToMain(ActionEvent mouseEvent) throws IOException {
-        CommonUtil.pageNavigation("/main/java/com/mit/du/sample.fxml", Main.stage,this.getClass(),"Blog Management System", 600, 400);
+        CommonUtil.pageNavigation("/fxml/sample.fxml", Main.stage,this.getClass(),"Blog Management System", 600, 400);
     }
 
     @Override

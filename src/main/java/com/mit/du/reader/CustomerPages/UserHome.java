@@ -18,12 +18,12 @@ public class UserHome implements Initializable {
     public AnchorPane rootAnchorPane;
     public static int welcomed = 0;
     public void BackToLoginPage(ActionEvent actionEvent) throws IOException {
-        CommonUtil.pageNavigation("/main/java/com/mit/du/sample.fxml", Main.stage,this.getClass(),"User Home", 600, 400);
+        CommonUtil.pageNavigation("/fxml/sample.fxml", Main.stage,this.getClass(),"User Home", 600, 400);
         welcomed = 0;
     }
 
     public void UserInfo(ActionEvent actionEvent) throws IOException {
-        CommonUtil.pageNavigation("/main/java/com/mit/du/reader/CustomerPages/CustomerInfo/UserInfo.fxml", null,this.getClass(),"User Home", 550, 400);
+        CommonUtil.pageNavigation("/reader/CustomerPages/CustomerInfo/UserInfo.fxml", null,this.getClass(),"User Home", 550, 400);
     }
 
     @Override
