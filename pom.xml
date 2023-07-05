@@ -1,12 +1,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <!--<groupId>com.app.mit.du</groupId>-->
     <groupId>com.mit.du</groupId>
-    <artifactId>HotelManagementSystem</artifactId>
+    <artifactId>BlogManagementSystem</artifactId>
     <packaging>jar</packaging>
     <version>1.0-SNAPSHOT</version>
-    <name>HotelManagementSystem</name>
+    <name>BlogManagementSystem</name>
     <url>http://maven.apache.org</url>
 
     <properties>
@@ -16,18 +15,11 @@
     </properties>
 
     <dependencies>
-        <!-- https://mvnrepository.com/artifact/org.openjfx/javafx -->
-        <dependency>
-            <groupId>org.openjfx</groupId>
-            <artifactId>javafx</artifactId>
-            <version>11</version>
-            <type>pom</type>
-        </dependency>
         <!-- https://mvnrepository.com/artifact/com.jfoenix/jfoenix -->
         <dependency>
             <groupId>com.jfoenix</groupId>
             <artifactId>jfoenix</artifactId>
-            <version>9.0.1</version>
+            <version>8.0.9</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/de.jensd/fontawesomefx -->
         <dependency>

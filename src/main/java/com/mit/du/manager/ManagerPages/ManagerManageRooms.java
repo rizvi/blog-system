@@ -1,7 +1,8 @@
-package main.java.com.mit.du.manager.ManagerPages;
+package com.mit.du.manager.ManagerPages;
 
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
+import com.mit.du.backend.CommonUtil;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import javafx.collections.FXCollections;
@@ -21,10 +22,9 @@ import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Callback;
-import main.java.com.mit.du.backend.CommonTask;
-import main.java.com.mit.du.backend.DBConnection;
-import main.java.com.mit.du.backend.tableview.ManagerRoomTable;
-import main.java.com.mit.du.manager.ManagerPages.RoomInfoEdit.RoomInfoEdit;
+import com.mit.du.backend.DBUtil;
+import com.mit.du.backend.utils.ManagerRoomTable;
+import com.mit.du.manager.ManagerPages.RoomInfoEdit.RoomInfoEdit;
 
 import java.io.IOException;
 import java.net.URL;
@@ -35,10 +35,10 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 import java.util.concurrent.atomic.AtomicReference;
 
-import static main.java.com.mit.du.Main.xxx;
-import static main.java.com.mit.du.Main.yyy;
+import static com.mit.du.Main.xxx;
+import static com.mit.du.Main.yyy;
 
-public class ManagerManageRooms extends DBConnection implements Initializable {
+public class ManagerManageRooms extends DBUtil implements Initializable {
 
     
 
@@ -68,7 +68,7 @@ public class ManagerManageRooms extends DBConnection implements Initializable {
         String roomStatus = roomStatusChoiceBox.getValue()+"";
 
         if (roomNo.isEmpty() || bedCapacity.isEmpty()  || roomType.isEmpty() || price_day.isEmpty() || roomStatus.equals("null")) {
-            CommonTask.showAlert(Alert.AlertType.WARNING, "Error", "Field can't be empty!");
+            CommonUtil.showAlert(Alert.AlertType.WARNING, "Error", "Field can't be empty!");
         } else {
             String sql = "INSERT INTO ROOMINFO (ROOM_NO, TYPE, CAPACITY, PRICE_DAY, STATUS) VALUES(?,?,?,?,?)";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
@@ -79,10 +79,10 @@ public class ManagerManageRooms extends DBConnection implements Initializable {
             preparedStatement.setString(5, roomStatus);
             try{
                 preparedStatement.execute();
-                CommonTask.showAlert(Alert.AlertType.INFORMATION, "Successful", "Room Added Successfully!");
+                CommonUtil.showAlert(Alert.AlertType.INFORMATION, "Successful", "Room Added Successfully!");
                 showRoomTable();
             } catch (SQLException e){
-                CommonTask.showAlert(Alert.AlertType.ERROR, "Error", "This Room no. already exists!");
+                CommonUtil.showAlert(Alert.AlertType.ERROR, "Error", "This Room no. already exists!");
             } finally {
                 closeConnections();
             }
@@ -258,7 +258,7 @@ public class ManagerManageRooms extends DBConnection implements Initializable {
 
                     statement.execute();
 
-                    CommonTask.showAlert(Alert.AlertType.INFORMATION, "Delete Operation Successfull", "Room No " + managerRoomTable.getROOMNO() + " is deleted from database!");
+                    CommonUtil.showAlert(Alert.AlertType.INFORMATION, "Delete Operation Successfull", "Room No " + managerRoomTable.getROOMNO() + " is deleted from database!");
 
                     roomTable.getItems().remove(managerRoomTable);
                 }
@@ -268,7 +268,7 @@ public class ManagerManageRooms extends DBConnection implements Initializable {
                 closeConnections();
             }
         } else {
-            CommonTask.showAlert(Alert.AlertType.WARNING, "Delete Unsuccessful", "Can't delete. It's currently booked by a reader.");
+            CommonUtil.showAlert(Alert.AlertType.WARNING, "Delete Unsuccessful", "Can't delete. It's currently booked by a reader.");
         }
     }
 
@@ -278,7 +278,7 @@ public class ManagerManageRooms extends DBConnection implements Initializable {
             try {
                 if (!connection.isClosed()) {
                     FXMLLoader loader = new FXMLLoader();
-                    loader.setLocation(getClass().getResource("/main/java/com/mit/du/manager/ManagerPages/RoomInfoEdit/roomInfoEdit.fxml"));
+                    loader.setLocation(getClass().getResource("/com/mit/du/manager/ManagerPages/RoomInfoEdit/roomInfoEdit.fxml"));
                     Parent viewContact = loader.load();
                     Scene scene = new Scene(viewContact);
                     // update information
@@ -301,7 +301,7 @@ public class ManagerManageRooms extends DBConnection implements Initializable {
                 closeConnections();
             }
         } else {
-            CommonTask.showAlert(Alert.AlertType.WARNING, "Can't Edit!", " Currently booked by a reader.");
+            CommonUtil.showAlert(Alert.AlertType.WARNING, "Can't Edit!", " Currently booked by a reader.");
         }
     }
 

@@ -1,4 +1,4 @@
-package main.java.com.mit.du.backend.tableview;
+package com.mit.du.backend.utils;
 
 public class ManagerCustomerTable {
     private String NID;

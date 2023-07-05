@@ -1,4 +1,4 @@
-package main.java.com.mit.du.manager.ManagerPages;
+package com.mit.du.manager.ManagerPages;
 
 import com.jfoenix.controls.JFXComboBox;
 import javafx.collections.FXCollections;
@@ -9,9 +9,9 @@ import javafx.scene.control.*;
 import javafx.scene.control.Label;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
-import main.java.com.mit.du.backend.CommonTask;
-import main.java.com.mit.du.backend.DBConnection;
-import main.java.com.mit.du.backend.tableview.ManagerCustomerTable;
+import com.mit.du.backend.CommonUtil;
+import com.mit.du.backend.DBUtil;
+import com.mit.du.backend.utils.ManagerCustomerTable;
 
 import java.net.URL;
 import java.sql.Connection;
@@ -22,7 +22,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class ManagerCheckIn extends DBConnection implements Initializable {
+public class ManagerCheckIn extends DBUtil implements Initializable {
     public TableView<ManagerCustomerTable> customerTable;
     public TableColumn<ManagerCustomerTable, String> nidCol;
     public TableColumn<ManagerCustomerTable, String> nameCol;
@@ -59,7 +59,7 @@ public class ManagerCheckIn extends DBConnection implements Initializable {
     private void setRoomInfoo(javafx.event.Event event) {
         String roomNo = roomChoiceBox.getValue()+"";
         if(!roomNo.equals("null")) {
-            Connection connection = DBConnection.getConnections();
+            Connection connection = DBUtil.getConnections();
             try {
                 if (!connection.isClosed()) {
                     String sql = "SELECT * FROM ROOMINFO WHERE ROOM_NO = ?";
@@ -75,13 +75,13 @@ public class ManagerCheckIn extends DBConnection implements Initializable {
                         roomPriceField.setText(roomPriceDay);
                         roomTypeField.setText(roomType);
                     } else {
-                        CommonTask.showAlert(Alert.AlertType.ERROR, "ERROR", "Can't get/set Info!");
+                        CommonUtil.showAlert(Alert.AlertType.ERROR, "ERROR", "Can't get/set Info!");
                     }
                 }
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
             } finally {
-                DBConnection.closeConnections();
+                DBUtil.closeConnections();
             }
         }
     }
@@ -90,7 +90,7 @@ public class ManagerCheckIn extends DBConnection implements Initializable {
         List<String> rooms = new ArrayList<String>();
 
         int count = 0;
-        Connection connection = DBConnection.getConnections();
+        Connection connection = DBUtil.getConnections();
         try{
             if(!connection.isClosed()) {
                 String sql = "SELECT * FROM ROOMINFO WHERE STATUS = ?";
@@ -104,7 +104,7 @@ public class ManagerCheckIn extends DBConnection implements Initializable {
         } catch (SQLException e){
             e.printStackTrace();
         } finally {
-            DBConnection.closeConnections();
+            DBUtil.closeConnections();
         }
         roomChoiceBox.getItems().setAll(rooms);
         roomChoiceBox.setValue(null);
@@ -163,9 +163,9 @@ public class ManagerCheckIn extends DBConnection implements Initializable {
         String roomPrice = roomPriceField.getText();
         System.out.println(roomCapacity +" "+roomType+" "+roomPrice);
        // System.out.println(name+" "+RoomNo+" "+CheckInDate);
-        Connection connection = DBConnection.getConnections();
+        Connection connection = DBUtil.getConnections();
         if (name.isEmpty() || RoomNo.equals("null") || CheckInDate.equals("null")) {
-            CommonTask.showAlert(Alert.AlertType.WARNING, "Error", "Field can't be empty!");
+            CommonUtil.showAlert(Alert.AlertType.WARNING, "Error", "Field can't be empty!");
         } else {
             String sql = "INSERT INTO CHECKINOUTINFO (NAME, NID, EMAIL, PHONE, ADDRESS, ROOMNO, CHECKEDIN, ROOMTYPE, CAPACITY, PRICEDAY) VALUES(?,?,?,?,?,?,?,?,?,?)";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
@@ -185,11 +185,11 @@ public class ManagerCheckIn extends DBConnection implements Initializable {
                 PreparedStatement preparedStatement1 = connection.prepareStatement(sql1);
                 preparedStatement1.setString(1, RoomNo);
                 preparedStatement1.execute();
-                CommonTask.showAlert(Alert.AlertType.INFORMATION, "Successful", "Check-in Successful!");
+                CommonUtil.showAlert(Alert.AlertType.INFORMATION, "Successful", "Check-in Successful!");
             } catch (SQLException e){
-                CommonTask.showAlert(Alert.AlertType.ERROR, "Error", "SQL Exception found!");
+                CommonUtil.showAlert(Alert.AlertType.ERROR, "Error", "SQL Exception found!");
             } finally {
-                DBConnection.closeConnections();
+                DBUtil.closeConnections();
             }
             updateChoiceBox();
             clearTextFields();

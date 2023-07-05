@@ -1,13 +1,13 @@
-package main.java.com.mit.du.backend.tableview;
+package com.mit.du.backend.utils;
 
-public class CustomerRoomTable {
+public class ManagerRoomTable {
     String ROOMNO;
     String TYPE;
     String CAPACITY;
     String PRICEDAY;
     String STATUS;
 
-    public CustomerRoomTable(String ROOMNO, String TYPE, String CAPACITY, String PRICEDAY, String STATUS){
+    public ManagerRoomTable(String ROOMNO, String TYPE, String CAPACITY, String PRICEDAY, String STATUS){
         this.ROOMNO = ROOMNO;
         this.TYPE = TYPE;
         this.CAPACITY = CAPACITY;

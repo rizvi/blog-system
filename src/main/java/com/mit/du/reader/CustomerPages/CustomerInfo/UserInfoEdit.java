@@ -1,6 +1,7 @@
-package main.java.com.mit.du.reader.CustomerPages.CustomerInfo;
+package com.mit.du.reader.CustomerPages.CustomerInfo;
 
 import com.jfoenix.controls.JFXDialog;
+import com.mit.du.backend.CommonUtil;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -10,10 +11,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
-import main.java.com.mit.du.backend.CommonTask;
-import main.java.com.mit.du.backend.DBConnection;
+import com.mit.du.backend.DBUtil;
 
-import static main.java.com.mit.du.reader.Login.UserLogin.currentCustomerNID;
+import static com.mit.du.reader.Login.UserLogin.currentCustomerNID;
 
 import java.io.IOException;
 import java.net.URL;
@@ -50,7 +50,7 @@ public class UserInfoEdit implements Initializable {
 
     @FXML
     void UserConfirmEdit(ActionEvent event) throws IOException, SQLException {
-        Connection connection = DBConnection.getConnections();
+        Connection connection = DBUtil.getConnections();
         String customerName = UserNameEdit.getText();
         String customerNID = UserNidEdit.getText();
         String customerPassword = UserPassEdit.getText();
@@ -59,7 +59,7 @@ public class UserInfoEdit implements Initializable {
         String customerAddress = UserAddressEdit.getText();
 //        System.out.println(customerPhone);
         if (customerName.isEmpty() || customerNID.isEmpty() || customerPassword.isEmpty() || customerEmail.isEmpty() || customerAddress.isEmpty() || customerPhone.isEmpty()) {
-            CommonTask.showJFXAlert(rootPane, rootAnchorPane, "warning", "Warning!", "Text field can't be empty!", JFXDialog.DialogTransition.CENTER);
+            CommonUtil.showJFXAlert(rootPane, rootAnchorPane, "warning", "Warning!", "Text field can't be empty!", JFXDialog.DialogTransition.CENTER);
         } else {
             String sql = "UPDATE CUSTOMERINFO SET NAME = ?, PASSWORD = ?, EMAIL = ?, PHONE = ?, ADDRESS = ? WHERE NID = ?";
             PreparedStatement preparedStatementUpdate = connection.prepareStatement(sql);
@@ -71,14 +71,14 @@ public class UserInfoEdit implements Initializable {
             preparedStatementUpdate.setString(6, currentCustomerNID);
             try {
                 preparedStatementUpdate.execute();
-//                CommonTask.showAlert(Alert.AlertType.INFORMATION, "Successful", "Update Successful!");]
+//                CommonUtil.showAlert(Alert.AlertType.INFORMATION, "Successful", "Update Successful!");]
                 editedFlag = true;
-                CommonTask.pageNavigation("/main/java/com/mit/du/reader/CustomerPages/CustomerInfo/UserInfo.fxml", (Stage) UserConfirm.getScene().getWindow(),this.getClass(),"User Home", 550, 400);
+                CommonUtil.pageNavigation("/com/mit/du/reader/CustomerPages/CustomerInfo/UserInfo.fxml", (Stage) UserConfirm.getScene().getWindow(),this.getClass(),"User Home", 550, 400);
 
             } catch (SQLException e){
-                CommonTask.showJFXAlert(rootPane, rootAnchorPane, "ERROR", "ERROR!", "Connection Problem!", JFXDialog.DialogTransition.CENTER);
+                CommonUtil.showJFXAlert(rootPane, rootAnchorPane, "ERROR", "ERROR!", "Connection Problem!", JFXDialog.DialogTransition.CENTER);
             } finally {
-                DBConnection.closeConnections();
+                DBUtil.closeConnections();
             }
         }
     }
@@ -89,7 +89,7 @@ public class UserInfoEdit implements Initializable {
     }
 
     public void setCustomerInfo(){
-        Connection connection = DBConnection.getConnections();
+        Connection connection = DBUtil.getConnections();
         try {
             if(!connection.isClosed()){
                 String sql = "SELECT * FROM CUSTOMERINFO WHERE NID = ?";
@@ -112,19 +112,19 @@ public class UserInfoEdit implements Initializable {
                     UserPassEdit.setText(customerPasswordSet);
                     UserAddressEdit.setText(customerAddressSet);
                 } else {
-//                    CommonTask.showAlert(Alert.AlertType.ERROR, "ERROR", "Can't get/set Info!");
-                    CommonTask.showJFXAlert(rootPane, rootAnchorPane, "ERROR", "ERROR!", "Connection Problem!", JFXDialog.DialogTransition.CENTER);
+//                    CommonUtil.showAlert(Alert.AlertType.ERROR, "ERROR", "Can't get/set Info!");
+                    CommonUtil.showJFXAlert(rootPane, rootAnchorPane, "ERROR", "ERROR!", "Connection Problem!", JFXDialog.DialogTransition.CENTER);
 
                 }
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         } finally {
-            DBConnection.closeConnections();
+            DBUtil.closeConnections();
         }
     }
 
     public void BackBtn(ActionEvent event) throws IOException {
-        CommonTask.pageNavigation("/main/java/com/mit/du/reader/CustomerPages/CustomerInfo/UserInfo.fxml", (Stage) UserConfirm.getScene().getWindow(),this.getClass(),"User Home", 550, 400);
+        CommonUtil.pageNavigation("/com/mit/du/reader/CustomerPages/CustomerInfo/UserInfo.fxml", (Stage) UserConfirm.getScene().getWindow(),this.getClass(),"User Home", 550, 400);
     }
 }

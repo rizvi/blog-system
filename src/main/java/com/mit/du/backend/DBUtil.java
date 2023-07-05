@@ -1,13 +1,13 @@
-package main.java.com.mit.du.backend;
+package com.mit.du.backend;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class DBConnection {
+public class DBUtil {
 
 //    public static final String DB_NAME = "hotelmanagementsystem?autoReconnect=true&verifyServerCertificate=false&useSSL=false";
-    public static final String DB_NAME = "hotelmanagementsystem";
+    public static final String DB_NAME = "blogmanagementsystem";
     public static final String USERNAME = "root";
     public static final String PASSWORD = "bjit1234";
 

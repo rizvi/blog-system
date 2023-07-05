@@ -1,4 +1,4 @@
-package main.java.com.mit.du.reader.CustomerPages;
+package com.mit.du.reader.CustomerPages;
 
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXDialog;
@@ -11,9 +11,9 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
-import main.java.com.mit.du.backend.CommonTask;
-import main.java.com.mit.du.backend.DBConnection;
-import main.java.com.mit.du.reader.Login.UserLogin;
+import com.mit.du.backend.CommonUtil;
+import com.mit.du.backend.DBUtil;
+import com.mit.du.reader.Login.UserLogin;
 
 import java.net.URL;
 import java.sql.Connection;
@@ -59,10 +59,10 @@ public class UserCheckIn implements Initializable {
         String roomCapacity = roomCapacityField.getText()+"";
         String roomType = roomTypeField.getText()+"";
         String roomPrice = roomPriceField.getText()+"";
-        Connection connection = DBConnection.getConnections();
+        Connection connection = DBUtil.getConnections();
         if (roomType.equals("") || roomPrice.equals("") || roomCapacity.equals("") || CheckInDate.equals("null")) {
-//            CommonTask.showAlert(Alert.AlertType.WARNING, "Error", "Field can't be empty!");
-            CommonTask.showJFXAlert(rootPane, userCheckInPane, "warning", "Warning!", "Field Can't be Empty!", JFXDialog.DialogTransition.CENTER);
+//            CommonUtil.showAlert(Alert.AlertType.WARNING, "Error", "Field can't be empty!");
+            CommonUtil.showJFXAlert(rootPane, userCheckInPane, "warning", "Warning!", "Field Can't be Empty!", JFXDialog.DialogTransition.CENTER);
         } else {
             String sql = "INSERT INTO CHECKINOUTINFO (NAME, NID, EMAIL, PHONE, ADDRESS, ROOMNO, CHECKEDIN, ROOMTYPE, CAPACITY, PRICEDAY) VALUES(?,?,?,?,?,?,?,?,?,?)";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
@@ -82,13 +82,13 @@ public class UserCheckIn implements Initializable {
                 PreparedStatement preparedStatement1 = connection.prepareStatement(sql1);
                 preparedStatement1.setString(1, RoomNo);
                 preparedStatement1.execute();
-//                CommonTask.showAlert(Alert.AlertType.INFORMATION, "Successful", "Check-in Successful!");
+//                CommonUtil.showAlert(Alert.AlertType.INFORMATION, "Successful", "Check-in Successful!");
 
-                CommonTask.showJFXAlert(rootPane, userCheckInPane, "information", "Successful!", "Check In Successful!", JFXDialog.DialogTransition.CENTER);
+                CommonUtil.showJFXAlert(rootPane, userCheckInPane, "information", "Successful!", "Check In Successful!", JFXDialog.DialogTransition.CENTER);
             } catch (SQLException e){
-                CommonTask.showJFXAlert(rootPane, userCheckInPane, "information", "Error!", "SQL Exception Happened!", JFXDialog.DialogTransition.CENTER);
+                CommonUtil.showJFXAlert(rootPane, userCheckInPane, "information", "Error!", "SQL Exception Happened!", JFXDialog.DialogTransition.CENTER);
             } finally {
-                DBConnection.closeConnections();
+                DBUtil.closeConnections();
             }
         }
         updateChoiceBox();
@@ -105,7 +105,7 @@ public class UserCheckIn implements Initializable {
 
     public void setRoomInfo(Event event) {
         String roomNo = userRoomChoicebox.getValue()+"";
-        Connection connection = DBConnection.getConnections();
+        Connection connection = DBUtil.getConnections();
         try {
             if(!connection.isClosed()){
                 String sql = "SELECT * FROM ROOMINFO WHERE ROOM_NO = ?";
@@ -121,20 +121,20 @@ public class UserCheckIn implements Initializable {
                     roomPriceField.setText(roomPriceDay);
                     roomTypeField.setText(roomType);
                 } else {
-//                    CommonTask.showAlert(Alert.AlertType.ERROR, "ERROR", "Can't get/set Info!");
+//                    CommonUtil.showAlert(Alert.AlertType.ERROR, "ERROR", "Can't get/set Info!");
                 }
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         } finally {
-            DBConnection.closeConnections();
+            DBUtil.closeConnections();
         }
     }
 
 
     public void updateChoiceBox(){
         List<String> rooms = new ArrayList<String>();
-        Connection connection = DBConnection.getConnections();
+        Connection connection = DBUtil.getConnections();
         try{
             if(!connection.isClosed()) {
                 String sql = "SELECT * FROM ROOMINFO WHERE STATUS = ?";
@@ -148,14 +148,14 @@ public class UserCheckIn implements Initializable {
         } catch (SQLException e){
             e.printStackTrace();
         } finally {
-            DBConnection.closeConnections();
+            DBUtil.closeConnections();
         }
         userRoomChoicebox.getItems().setAll(rooms);
         userRoomChoicebox.setValue(null);
     }
 
     public void setAndShowCustomerInfo(){
-        Connection connection = DBConnection.getConnections();
+        Connection connection = DBUtil.getConnections();
         try {
             if(!connection.isClosed()){
                 String sql = "SELECT * FROM CUSTOMERINFO WHERE NID = ?";
@@ -177,13 +177,13 @@ public class UserCheckIn implements Initializable {
                     //UserPasswordLabel.setText(customerPassword);
                     UserAddressField.setText(customerAddress);
                 } else {
-                    CommonTask.showAlert(Alert.AlertType.ERROR, "ERROR", "SQL connection Error!");
+                    CommonUtil.showAlert(Alert.AlertType.ERROR, "ERROR", "SQL connection Error!");
                 }
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         } finally {
-            DBConnection.closeConnections();
+            DBUtil.closeConnections();
         }
     }
 

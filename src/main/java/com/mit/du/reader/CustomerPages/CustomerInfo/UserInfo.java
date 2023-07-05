@@ -1,6 +1,7 @@
-package main.java.com.mit.du.reader.CustomerPages.CustomerInfo;
+package com.mit.du.reader.CustomerPages.CustomerInfo;
 
 import com.jfoenix.controls.JFXDialog;
+import com.mit.du.backend.CommonUtil;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -10,11 +11,10 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
-import main.java.com.mit.du.backend.CommonTask;
-import main.java.com.mit.du.backend.DBConnection;
+import com.mit.du.backend.DBUtil;
 
-import static main.java.com.mit.du.reader.CustomerPages.CustomerInfo.UserInfoEdit.editedFlag;
-import static main.java.com.mit.du.reader.Login.UserLogin.currentCustomerNID;
+import static com.mit.du.reader.CustomerPages.CustomerInfo.UserInfoEdit.editedFlag;
+import static com.mit.du.reader.Login.UserLogin.currentCustomerNID;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
@@ -56,20 +56,20 @@ public class UserInfo implements Initializable {
     @FXML
     void UserInfoEdit(ActionEvent event) throws IOException {
         editedFlag = false;
-        CommonTask.pageNavigation("/main/java/com/mit/du/reader/CustomerPages/CustomerInfo/UserInfoEdit.fxml", (Stage) UserBackToHome.getScene().getWindow(),this.getClass(),"User Home", 550, 400);
+        CommonUtil.pageNavigation("/com/mit/du/reader/CustomerPages/CustomerInfo/UserInfoEdit.fxml", (Stage) UserBackToHome.getScene().getWindow(),this.getClass(),"User Home", 550, 400);
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         showCustomerInfo();
         if (editedFlag == true) {
-            CommonTask.showJFXAlert(rootPane, rootAnchorPane, "information", "Updated!", "Successfully Updated!", JFXDialog.DialogTransition.CENTER);
+            CommonUtil.showJFXAlert(rootPane, rootAnchorPane, "information", "Updated!", "Successfully Updated!", JFXDialog.DialogTransition.CENTER);
 
         }
     }
 
     public void showCustomerInfo(){
-        Connection connection = DBConnection.getConnections();
+        Connection connection = DBUtil.getConnections();
         try {
             if(!connection.isClosed()){
                 String sql = "SELECT * FROM CUSTOMERINFO WHERE NID = ?";
@@ -91,13 +91,13 @@ public class UserInfo implements Initializable {
                     UserPasswordLabel.setText(customerPassword);
                     UserAddressLabel.setText(customerAddress);
                 } else {
-                    CommonTask.showAlert(Alert.AlertType.ERROR, "ERROR", "Can't get/set Info!");
+                    CommonUtil.showAlert(Alert.AlertType.ERROR, "ERROR", "Can't get/set Info!");
                 }
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         } finally {
-            DBConnection.closeConnections();
+            DBUtil.closeConnections();
         }
     }
 }

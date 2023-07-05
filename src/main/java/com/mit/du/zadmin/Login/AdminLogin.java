@@ -1,14 +1,14 @@
-package main.java.com.mit.du.zadmin.Login;
+package com.mit.du.zadmin.Login;
 
+import com.mit.du.backend.CommonUtil;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
-import main.java.com.mit.du.backend.CommonTask;
-import main.java.com.mit.du.backend.DBConnection;
-import main.java.com.mit.du.Main;
+import com.mit.du.backend.DBUtil;
+import com.mit.du.Main;
 
 import java.io.IOException;
 import java.net.URL;
@@ -32,9 +32,9 @@ public class AdminLogin implements Initializable {
         currentAdminNID = adminNID;
         String adminPass = adminPassField.getText();
         try {
-            connection = DBConnection.getConnections();
+            connection = DBUtil.getConnections();
             if (adminNID.isEmpty() || adminPass.isEmpty()) {
-                CommonTask.showAlert(Alert.AlertType.WARNING, "Error", "Field Can't be Empty!");
+                CommonUtil.showAlert(Alert.AlertType.WARNING, "Error", "Field Can't be Empty!");
             } else {
                 String sql = "SELECT * FROM ADMININFO WHERE NID = ? AND PASSWORD = ?";
                 preparedStatement = connection.prepareStatement(sql);
@@ -42,21 +42,21 @@ public class AdminLogin implements Initializable {
                 preparedStatement.setString(2, adminPass);
                 ResultSet resultSet = preparedStatement.executeQuery();
                 if (resultSet.next()) {
-                    CommonTask.showAlert(Alert.AlertType.INFORMATION, "Login Success!", "Successfully Logged In!");
-                    CommonTask.pageNavigation("/main/java/com/mit/du/zadmin/AdminPages/AdminMain.fxml", Main.stage,this.getClass(),"Admin Dashboard", 1000, 600);
+                    CommonUtil.showAlert(Alert.AlertType.INFORMATION, "Login Success!", "Successfully Logged In!");
+                    CommonUtil.pageNavigation("/com/mit/du/zadmin/AdminPages/AdminMain.fxml", Main.stage,this.getClass(),"Admin Dashboard", 1000, 600);
                 } else {
-                    CommonTask.showAlert(Alert.AlertType.ERROR, "Login Failed!", "Incorrect NID or Password!");
+                    CommonUtil.showAlert(Alert.AlertType.ERROR, "Login Failed!", "Incorrect NID or Password!");
                 }
             }
         } catch (SQLException e){
             e.printStackTrace();
         } finally {
-            DBConnection.closeConnections();
+            DBUtil.closeConnections();
         }
         }
 
     public void BackToMain(ActionEvent actionEvent) throws IOException {
-        CommonTask.pageNavigation("/main/java/com/mit/du/sample.fxml", Main.stage,this.getClass(),"Blog Management System", 600, 400);
+        CommonUtil.pageNavigation("/resources/fxml/sample.fxml", Main.stage,this.getClass(),"Blog Management System", 600, 400);
     }
 
     @Override

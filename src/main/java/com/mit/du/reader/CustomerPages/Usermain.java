@@ -1,4 +1,4 @@
-package main.java.com.mit.du.reader.CustomerPages;
+package com.mit.du.reader.CustomerPages;
 
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import javafx.event.ActionEvent;

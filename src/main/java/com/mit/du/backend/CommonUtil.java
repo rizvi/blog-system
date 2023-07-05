@@ -1,4 +1,4 @@
-package main.java.com.mit.du.backend;
+package com.mit.du.backend;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDialog;
@@ -16,13 +16,13 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import main.java.com.mit.du.Main;
+import com.mit.du.Main;
 
 import java.io.IOException;
 import java.util.Locale;
 import java.util.Objects;
 
-public class CommonTask extends Main {
+public class CommonUtil extends Main {
     public static Stage newStage;
     public static double xx, yy;
 
@@ -39,6 +39,7 @@ public class CommonTask extends Main {
         }
         newStage = stage;
         //stage.initStyle(StageStyle.UNDECORATED);
+        System.out.println("rana: "+to);
         Parent root = FXMLLoader.load(Objects.requireNonNull(classes.getResource(to)));
         stage.setTitle(title);
 //        Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();
@@ -90,8 +91,8 @@ public class CommonTask extends Main {
         okayBtn.setStyle("-fx-background-color:#4A4A4A; -fx-text-fill: white; -fx-border-color: white");
 //        layout.setStyle("-fx-background-color: #25263A; -fx-text-fill: white; -fx-border-color: white; -fx-fill: white; -fx-progress-color: white");
 //        layout.lookup(".dialog-pane:header .header-panel .label").setStyle("-fx-text-fill: white; -fx-background-color: #25263a");
-//        layout.getStylesheets().add(getClass().getResource("/main.java.sample/reader/CustomerPages/CSS/imageSet.css").toExternalForm());
-        layout.getStylesheets().add("/main/java/com/mit/du/backend/dialogPane.css");
+//        layout.getStylesheets().add(getClass().getResource("/sample/reader/CustomerPages/CSS/imageSet.css").toExternalForm());
+        layout.getStylesheets().add("/com/mit/du/backend/dialogPane.css");
         JFXDialog dialog = new JFXDialog(rootPane, layout, transition);
         okayBtn.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent mouseEvent) -> {
             dialog.close();

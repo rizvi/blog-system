@@ -1,4 +1,4 @@
-package main.java.com.mit.du.manager.ManagerPages.ManagerInfo;
+package com.mit.du.manager.ManagerPages.ManagerInfo;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
@@ -6,9 +6,9 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
-import main.java.com.mit.du.manager.Login.ManagerLogin;
-import main.java.com.mit.du.backend.CommonTask;
-import main.java.com.mit.du.backend.DBConnection;
+import com.mit.du.manager.Login.ManagerLogin;
+import com.mit.du.backend.CommonUtil;
+import com.mit.du.backend.DBUtil;
 
 import java.net.URL;
 import java.sql.Connection;
@@ -37,7 +37,7 @@ public class ManagerInfo implements Initializable {
     }
 
     private void setManagerData() {
-        Connection connection = DBConnection.getConnections();
+        Connection connection = DBUtil.getConnections();
         try {
             if(!connection.isClosed()){
                 String sql = "SELECT * FROM EMPLOYEEINFO WHERE NID = ?";
@@ -59,13 +59,13 @@ public class ManagerInfo implements Initializable {
                     managerPassword.setText(customerPassword);
                     managerAddress.setText(customerAddress);
                 } else {
-                    CommonTask.showAlert(Alert.AlertType.ERROR, "ERROR", "Can't get/set Info!");
+                    CommonUtil.showAlert(Alert.AlertType.ERROR, "ERROR", "Can't get/set Info!");
                 }
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         } finally {
-            DBConnection.closeConnections();
+            DBUtil.closeConnections();
         }
     }
 }

@@ -1,4 +1,4 @@
-package main.java.com.mit.du;
+package com.mit.du;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -6,6 +6,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+
+import java.io.File;
+import java.net.URL;
 
 public class Main extends Application {
 
@@ -16,7 +19,8 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         stage = primaryStage;
-        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
+//        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("../../../../resources/fxml/sample.fxml"));
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/sample.fxml"));
         primaryStage.initStyle(StageStyle.UNDECORATED);
         primaryStage.setTitle("Blog Management System");
         primaryStage.setScene(new Scene(root, 600, 400));

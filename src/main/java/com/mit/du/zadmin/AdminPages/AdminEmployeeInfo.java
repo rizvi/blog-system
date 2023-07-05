@@ -1,4 +1,4 @@
-package main.java.com.mit.du.zadmin.AdminPages;
+package com.mit.du.zadmin.AdminPages;
 
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
@@ -15,10 +15,10 @@ import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Callback;
-import main.java.com.mit.du.backend.CommonTask;
-import main.java.com.mit.du.backend.DBConnection;
-import main.java.com.mit.du.backend.tableview.AdminEmployeeTable;
-import main.java.com.mit.du.zadmin.AdminPages.EditCustomerEmployee.EmployeeInfoEdit;
+import com.mit.du.backend.CommonUtil;
+import com.mit.du.backend.DBUtil;
+import com.mit.du.backend.utils.AdminEmployeeTable;
+import com.mit.du.zadmin.AdminPages.EditCustomerEmployee.EmployeeInfoEdit;
 
 import java.io.IOException;
 import java.net.URL;
@@ -29,10 +29,10 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 import java.util.concurrent.atomic.AtomicReference;
 
-import static main.java.com.mit.du.Main.xxx;
-import static main.java.com.mit.du.Main.yyy;
+import static com.mit.du.Main.xxx;
+import static com.mit.du.Main.yyy;
 
-public class AdminEmployeeInfo extends DBConnection implements Initializable {
+public class AdminEmployeeInfo extends DBUtil implements Initializable {
     public TextField searchEmployeeTable;
     public Button searchBtn;
     public TableView<AdminEmployeeTable> employeeTable;
@@ -205,7 +205,7 @@ public class AdminEmployeeInfo extends DBConnection implements Initializable {
         try {
             if (!connection.isClosed()) {
                 FXMLLoader loader = new FXMLLoader();
-                loader.setLocation(getClass().getResource("/main/java/com/mit/du/zadmin/AdminPages/EditCustomerEmployee/EmployeeInfoEdit.fxml"));
+                loader.setLocation(getClass().getResource("/com/mit/du/zadmin/AdminPages/EditCustomerEmployee/EmployeeInfoEdit.fxml"));
                 Parent viewContact = loader.load();
                 Scene scene = new Scene(viewContact);
                 // update information
@@ -256,7 +256,7 @@ public class AdminEmployeeInfo extends DBConnection implements Initializable {
                 PreparedStatement statement = connection.prepareStatement(sql);
                 statement.setString(1, adminEmployeeTable.getNID());
                 statement.execute();
-                CommonTask.showAlert(Alert.AlertType.INFORMATION, "Delete Operation Successful", "Employee Named " + adminEmployeeTable.getName() + " is deleted from database!");
+                CommonUtil.showAlert(Alert.AlertType.INFORMATION, "Delete Operation Successful", "Employee Named " + adminEmployeeTable.getName() + " is deleted from database!");
 
                 //showTableInformation();
                 employeeTable.getItems().remove(adminEmployeeTable);

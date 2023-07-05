@@ -1,11 +1,11 @@
-package main.java.com.mit.du;
+package com.mit.du;
 
 import com.jfoenix.controls.JFXButton;
+import com.mit.du.backend.CommonUtil;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.image.ImageView;
-import main.java.com.mit.du.backend.CommonTask;
 
 import java.io.IOException;
 import java.net.URL;
@@ -21,17 +21,18 @@ public class Controller implements Initializable{
 
     @FXML
     void Customer_Login(ActionEvent event) throws IOException {
-        CommonTask.pageNavigation("reader/Login/UserLogin.fxml",Main.stage,this.getClass(),"Reader Login", 600, 400);
+//        CommonUtil.pageNavigation("UserLogin.fxml",Main.stage,this.getClass(),"Reader Login", 600, 400);
+        CommonUtil.pageNavigation("/reader/Login/UserLogin.fxml",Main.stage,this.getClass(),"Reader Login", 600, 400);
     }
 
     @FXML
     void Manager_Login(ActionEvent event) throws IOException {
-        CommonTask.pageNavigation("manager/Login/ManagerLogin.fxml",Main.stage,this.getClass(),"Blogger Login", 600, 400);
+        CommonUtil.pageNavigation("manager/Login/ManagerLogin.fxml",Main.stage,this.getClass(),"Blogger Login", 600, 400);
     }
 
     @FXML
     void Admin_Login(ActionEvent event) throws IOException {
-        CommonTask.pageNavigation("zadmin/Login/AdminLogin.fxml", Main.stage,this.getClass(),"Admin Login", 600, 400);
+        CommonUtil.pageNavigation("zadmin/Login/AdminLogin.fxml", Main.stage,this.getClass(),"Admin Login", 600, 400);
     }
 
     @Override

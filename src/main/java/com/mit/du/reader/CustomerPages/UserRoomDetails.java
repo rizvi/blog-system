@@ -1,4 +1,4 @@
-package main.java.com.mit.du.reader.CustomerPages;
+package com.mit.du.reader.CustomerPages;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -11,8 +11,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import main.java.com.mit.du.backend.DBConnection;
-import main.java.com.mit.du.backend.tableview.CustomerRoomTable;
+import com.mit.du.backend.DBUtil;
+import com.mit.du.backend.utils.CustomerRoomTable;
 
 import java.net.URL;
 import java.sql.Connection;
@@ -21,7 +21,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
-public class UserRoomDetails extends DBConnection implements Initializable {
+public class UserRoomDetails extends DBUtil implements Initializable {
 
     @FXML
     private TextField UserSearchRoomStatus;
@@ -103,8 +103,8 @@ public class UserRoomDetails extends DBConnection implements Initializable {
         // 3. Wrap the FilteredList in a SortedList.
         SortedList<CustomerRoomTable> sortedData = new SortedList<>(filteredData);
 
-        // 4. Bind the SortedList comparator to the tableview comparator.
-        // 	  Otherwise, sorting the tableview would have no effect.
+        // 4. Bind the SortedList comparator to the utils comparator.
+        // 	  Otherwise, sorting the utils would have no effect.
         sortedData.comparatorProperty().bind(roomTable.comparatorProperty());
 
         // 5. Add sorted (and filtered) data to the table.

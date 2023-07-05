@@ -1,5 +1,5 @@
 .bodybg{
-     -fx-background-image:url('../../../../images/blog.png');
+     -fx-background-image:url('../../resources/images/blog.png');
      -fx-background-size: cover;
  }
 
@@ -179,3 +179,4 @@
     -fx-scale-x: 1.022;
     -fx-scale-y: 1.022;
 }
+

@@ -1,4 +1,4 @@
-package main.java.com.mit.du.backend.tableview;
+package com.mit.du.backend.utils;
 
 public class CustomerCheckOutTable {
     String nid, roomNo, checkedIndate, checkedOutDate, priceDay, totalPrice;

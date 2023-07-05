@@ -1,10 +1,10 @@
-package main.java.com.mit.du.zadmin.AdminPages;
+package com.mit.du.zadmin.AdminPages;
 
+import com.mit.du.backend.CommonUtil;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
-import main.java.com.mit.du.backend.CommonTask;
-import main.java.com.mit.du.backend.DBConnection;
+import com.mit.du.backend.DBUtil;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -17,7 +17,7 @@ public class AdminAddEmployee {
     public TextField EmployeeAddressField;
     public TextField EmployeeNIDField;
     public TextField EmployeePassField;
-    Connection connection = DBConnection.getConnections();
+    Connection connection = DBUtil.getConnections();
     public void CreateEmployee(ActionEvent actionEvent) throws SQLException {
         String employeeName = EmployeeNameField.getText();
         String employeeNID = EmployeeNIDField.getText();
@@ -27,7 +27,7 @@ public class AdminAddEmployee {
         String employeeAddress = EmployeeAddressField.getText();
 
         if (employeeName.isEmpty() || employeeNID.isEmpty() || employeePassword.isEmpty() || employeeEmail.isEmpty() || employeeAddress.isEmpty() || employeePhone.isEmpty()) {
-            CommonTask.showAlert(Alert.AlertType.WARNING, "Error", "Field can't be empty!");
+            CommonUtil.showAlert(Alert.AlertType.WARNING, "Error", "Field can't be empty!");
         } else {
             String sql = "INSERT INTO EMPLOYEEINFO(NAME, NID, PASSWORD, EMAIL, PHONE, ADDRESS) VALUES(?,?,?,?,?,?)";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
@@ -39,12 +39,12 @@ public class AdminAddEmployee {
             preparedStatement.setString(6, employeeAddress);
             try{
                 preparedStatement.execute();
-                CommonTask.showAlert(Alert.AlertType.INFORMATION, "Successful", "Employee created!");
-                //CommonTask.pageNavigation("UserLogin.fxml", Main.stage,this.getClass(),"User Home", 600, 400);
+                CommonUtil.showAlert(Alert.AlertType.INFORMATION, "Successful", "Employee created!");
+                //CommonUtil.pageNavigation("UserLogin.fxml", Main.stage,this.getClass(),"User Home", 600, 400);
             } catch (SQLException e){
-                CommonTask.showAlert(Alert.AlertType.ERROR, "Error", "Account already exists with this NID!");
+                CommonUtil.showAlert(Alert.AlertType.ERROR, "Error", "Account already exists with this NID!");
             } finally {
-                DBConnection.closeConnections();
+                DBUtil.closeConnections();
             }
         }
 

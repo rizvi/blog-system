@@ -1,4 +1,4 @@
-package main.java.com.mit.du.zadmin.AdminPages.EditCustomerEmployee;
+package com.mit.du.zadmin.AdminPages.EditCustomerEmployee;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -8,9 +8,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import main.java.com.mit.du.backend.CommonTask;
-import main.java.com.mit.du.backend.DBConnection;
-import main.java.com.mit.du.backend.tableview.AdminEmployeeTable;
+import com.mit.du.backend.CommonUtil;
+import com.mit.du.backend.DBUtil;
+import com.mit.du.backend.utils.AdminEmployeeTable;
 
 import java.io.IOException;
 import java.net.URL;
@@ -42,7 +42,7 @@ public class EmployeeInfoEdit implements Initializable {
 
     @FXML
     void UserConfirmEdit(ActionEvent event) throws IOException, SQLException {
-        Connection connection = DBConnection.getConnections();
+        Connection connection = DBUtil.getConnections();
         String employeeName = UserNameEdit.getText();
         String employeeNID = UserNidEdit.getText();
         String employeePassword = UserPassEdit.getText();
@@ -50,7 +50,7 @@ public class EmployeeInfoEdit implements Initializable {
         String employeePhone = UserPhoneEdit.getText();
         String employeeAddress = UserAddressEdit.getText();
         if (employeeName.isEmpty() || employeeNID.isEmpty() || employeePassword.isEmpty() || employeePhone.isEmpty() || employeeAddress.isEmpty()) {
-            CommonTask.showAlert(Alert.AlertType.WARNING, "Error", "Field can't be empty!");
+            CommonUtil.showAlert(Alert.AlertType.WARNING, "Error", "Field can't be empty!");
         } else {
             String sql = "UPDATE EMPLOYEEINFO SET NAME = ?, PASSWORD = ?, EMAIL = ?, PHONE = ?, ADDRESS = ? WHERE NID = ?";
             PreparedStatement preparedStatementUpdate = connection.prepareStatement(sql);
@@ -62,14 +62,14 @@ public class EmployeeInfoEdit implements Initializable {
             preparedStatementUpdate.setString(6, employeeNID);
             try{
                 preparedStatementUpdate.execute();
-//                CommonTask.showAlert(Alert.AlertType.INFORMATION, "Successful", "Update Successful!");
-//                CommonTask.pageNavigation("UserInfo.fxml", (Stage) UserConfirm.getScene().getWindow(),this.getClass(),"User Home", 550, 400);
+//                CommonUtil.showAlert(Alert.AlertType.INFORMATION, "Successful", "Update Successful!");
+//                CommonUtil.pageNavigation("UserInfo.fxml", (Stage) UserConfirm.getScene().getWindow(),this.getClass(),"User Home", 550, 400);
                 Stage stage = (Stage) UserConfirm.getScene().getWindow();
                 stage.close();
             } catch (SQLException e){
-                CommonTask.showAlert(Alert.AlertType.ERROR, "Error", "Maybe Sql Error!");
+                CommonUtil.showAlert(Alert.AlertType.ERROR, "Error", "Maybe Sql Error!");
             } finally {
-                DBConnection.closeConnections();
+                DBUtil.closeConnections();
             }
         }
     }
