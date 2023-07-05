@@ -185,7 +185,7 @@ public class ManagerCheckIn extends DBUtil implements Initializable {
                 PreparedStatement preparedStatement1 = connection.prepareStatement(sql1);
                 preparedStatement1.setString(1, RoomNo);
                 preparedStatement1.execute();
-                CommonUtil.showAlert(Alert.AlertType.INFORMATION, "Successful", "Check-in Successful!");
+                CommonUtil.showAlert(Alert.AlertType.INFORMATION, "Successful", "Enroll Successfully!");
             } catch (SQLException e){
                 CommonUtil.showAlert(Alert.AlertType.ERROR, "Error", "SQL Exception found!");
             } finally {

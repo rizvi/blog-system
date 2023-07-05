@@ -217,9 +217,9 @@ public class UserCheckOutDetails extends DBUtil implements Initializable {
 
             String title = "Blog Management System Slip\n\n";
             String nid = "Reader NID: "+customerCheckOutTable.getNid()+"\n";
-            String roomNo = "Room No: "+customerCheckOutTable.getRoomNo()+"\n";
-            String checkedIn = "Checked In Date: "+customerCheckOutTable.getCheckedIndate()+"\n";
-            String checkedOut = "Checked Out Date: "+customerCheckOutTable.getCheckedOutDate()+"\n";
+            String roomNo = "Course ID: "+customerCheckOutTable.getRoomNo()+"\n";
+            String checkedIn = "Enrollment Date: "+customerCheckOutTable.getCheckedIndate()+"\n";
+            String checkedOut = "Finish Date: "+customerCheckOutTable.getCheckedOutDate()+"\n";
             String priceDay = "Price per day: "+customerCheckOutTable.getPriceDay()+" taka\n";
             String totalBill = "Total Bill: "+customerCheckOutTable.getTotalPrice()+" taka\n";
             String totalParagraph = title+nid+roomNo+checkedIn+checkedOut+priceDay+totalBill;

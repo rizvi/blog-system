@@ -82,9 +82,9 @@ public class UserCheckIn implements Initializable {
                 PreparedStatement preparedStatement1 = connection.prepareStatement(sql1);
                 preparedStatement1.setString(1, RoomNo);
                 preparedStatement1.execute();
-//                CommonUtil.showAlert(Alert.AlertType.INFORMATION, "Successful", "Check-in Successful!");
+//                CommonUtil.showAlert(Alert.AlertType.INFORMATION, "Successful", "Enroll Successful!");
 
-                CommonUtil.showJFXAlert(rootPane, userCheckInPane, "information", "Successful!", "Check In Successful!", JFXDialog.DialogTransition.CENTER);
+                CommonUtil.showJFXAlert(rootPane, userCheckInPane, "information", "Successful!", "Enroll Successful!", JFXDialog.DialogTransition.CENTER);
             } catch (SQLException e){
                 CommonUtil.showJFXAlert(rootPane, userCheckInPane, "information", "Error!", "SQL Exception Happened!", JFXDialog.DialogTransition.CENTER);
             } finally {

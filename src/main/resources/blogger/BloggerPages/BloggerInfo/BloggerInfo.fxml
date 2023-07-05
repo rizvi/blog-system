@@ -31,7 +31,7 @@
                   </DropShadow>
                </effect>
             </Label>
-            <Label layoutX="29.0" layoutY="78.0" prefHeight="25.0" prefWidth="70.0" text="NID No    :">
+            <Label layoutX="29.0" layoutY="78.0" prefHeight="25.0" prefWidth="70.0" text="Username    :">
                <effect>
                   <DropShadow height="65.48" radius="30.7575" spread="0.02" width="59.55">
                      <color>
@@ -135,7 +135,7 @@
             <HBox prefHeight="30.0" prefWidth="141.0" styleClass="titlePane">
                <children>
                   <FontAwesomeIconView glyphName="GITHUB" size="18" />
-                  <Label style="-fx-text-fill: black;" styleClass="titleText" text="EMP Info" />
+                  <Label style="-fx-text-fill: black;" styleClass="titleText" text="Blogger Details" />
                </children>
             </HBox>
          </children>

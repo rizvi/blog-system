@@ -30,7 +30,7 @@
             <Font size="15.0" />
          </font>
       </Label>
-      <Label layoutX="241.0" layoutY="303.0" prefHeight="25.0" prefWidth="110.0" text="Employee NID :">
+      <Label layoutX="241.0" layoutY="303.0" prefHeight="25.0" prefWidth="110.0" text="Blogger NID :">
          <font>
             <Font size="15.0" />
          </font>
@@ -40,16 +40,16 @@
             <Font size="15.0" />
          </font>
       </Label>
-      <Label layoutX="348.0" layoutY="59.0" text="Employee Details">
+      <Label layoutX="348.0" layoutY="59.0" text="Blogger Details">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <JFXButton layoutX="360.0" layoutY="412.0" onAction="#CreateEmployee" prefHeight="40.0" prefWidth="137.0" style="-fx-background-color: #82eeff; -fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: gray;" text="Create Employee">
+      <JFXButton layoutX="360.0" layoutY="412.0" onAction="#CreateEmployee" prefHeight="40.0" prefWidth="137.0" style="-fx-background-color: #82eeff; -fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: gray;" text="Create Blogger">
          <font>
             <Font size="14.0" />
          </font></JFXButton>
-      <JFXTextField fx:id="EmployeeNameField" focusColor="#8cffba" layoutX="374.0" layoutY="108.0" prefHeight="31.0" prefWidth="206.0" promptText="Employee Name" unFocusColor="#a6fbff">
+      <JFXTextField fx:id="EmployeeNameField" focusColor="#8cffba" layoutX="374.0" layoutY="108.0" prefHeight="31.0" prefWidth="206.0" promptText="Blogger Name" unFocusColor="#a6fbff">
          <font>
             <Font size="14.0" />
          </font>
@@ -69,7 +69,7 @@
             <Font size="14.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="EmployeeNIDField" focusColor="#8cffba" layoutX="374.0" layoutY="300.0" prefHeight="31.0" prefWidth="206.0" promptText="Employee NID" unFocusColor="#a6fbff">
+      <JFXTextField fx:id="EmployeeNIDField" focusColor="#8cffba" layoutX="374.0" layoutY="300.0" prefHeight="31.0" prefWidth="206.0" promptText="Blogger NID" unFocusColor="#a6fbff">
          <font>
             <Font size="14.0" />
          </font>

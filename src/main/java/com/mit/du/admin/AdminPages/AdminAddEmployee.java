@@ -39,7 +39,7 @@ public class AdminAddEmployee {
             preparedStatement.setString(6, employeeAddress);
             try{
                 preparedStatement.execute();
-                CommonUtil.showAlert(Alert.AlertType.INFORMATION, "Successful", "Employee created!");
+                CommonUtil.showAlert(Alert.AlertType.INFORMATION, "Successful", "Blogger is created successfully!");
                 //CommonUtil.pageNavigation("UserLogin.fxml", Main.stage,this.getClass(),"User Home", 600, 400);
             } catch (SQLException e){
                 CommonUtil.showAlert(Alert.AlertType.ERROR, "Error", "Account already exists with this NID!");

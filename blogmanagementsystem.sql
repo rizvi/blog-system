@@ -73,11 +73,11 @@ CREATE TABLE IF NOT EXISTS `checkinoutinfo` (
 -- Dumping data for table `checkinoutinfo`
 --
 
-INSERT INTO `checkinoutinfo` (`SI_NO`, `NAME`, `EMAIL`, `PHONE`, `ADDRESS`, `NID`, `ROOMNO`, `ROOMTYPE`, `CAPACITY`, `CHECKEDIN`, `CHECKEDOUT`, `PRICEDAY`, `TOTALDAYS`, `TOTALPRICE`) VALUES
+/*INSERT INTO `checkinoutinfo` (`SI_NO`, `NAME`, `EMAIL`, `PHONE`, `ADDRESS`, `NID`, `ROOMNO`, `ROOMTYPE`, `CAPACITY`, `CHECKEDIN`, `CHECKEDOUT`, `PRICEDAY`, `TOTALDAYS`, `TOTALPRICE`) VALUES
 (1, 'mursalin', 'mursalin@gmail.com', '01222222', 'Dhaka, Bangladesh', 'mursalin', '1', 'AC', 'Single', '2023-06-14', '2023-06-15', '1500', '2', '3000'),
 (2, 'Mazharul Islam', 'mazhar@gmail.com', '01750265482', 'Kapasia, Gazipur', '123', '11', 'Non-Ac', 'Double', '2023-06-15', '2023-06-16', '500', '2', '1000'),
 (3, 'Mazharul Islam', 'mazhar@gmail.com', '01750265482', 'Kapasia, Gazipur', '123', '111', 'AC', 'Double', '2023-06-16', NULL, '1000', NULL, NULL);
-
+*/
 -- --------------------------------------------------------
 
 --
@@ -127,7 +127,6 @@ CREATE TABLE IF NOT EXISTS `employeeinfo` (
 
 INSERT INTO `employeeinfo` (`NAME`, `NID`, `PASSWORD`, `EMAIL`, `ADDRESS`, `PHONE`) VALUES
 ('Md. Rahid Parvez', 'EMP001', '123456', 'rahid@gmail.com', 'Shahbag, Dhaka-1000', '01915953086'),
-('Md. Mursalin', 'mursalin', 'mursalin', 'mur@gmail.com', 'dhaka, bangla', '01222222'),
 ('rakib', 'rakib', 'rakib', 'hasan@gmail.com', 'dhaka', '012323');
 
 -- --------------------------------------------------------
@@ -151,15 +150,10 @@ CREATE TABLE IF NOT EXISTS `roominfo` (
 --
 
 INSERT INTO `roominfo` (`ROOM_NO`, `TYPE`, `CAPACITY`, `PRICE_DAY`, `STATUS`) VALUES
-('1', 'AC', 'Single', 1500, 'Available'),
-('11', 'Non-Ac', 'Double', 500, 'Available'),
-('111', 'AC', 'Double', 1000, 'Booked'),
-('12', 'Non-Ac', '12', 250, 'Available'),
-('123', 'AC', '3', 750, 'Available'),
-('13', 'Ac', '12', 12, 'Available'),
-('2', 'AC-Room', 'Double', 2000, 'Available'),
-('3', 'AC', 'Double', 600, 'Available'),
-('9', 'Non-Ac', '4', 500, 'Available');
+('1', 'PMP Certification Course', '10', 1500, 'Available'),
+('11', 'CISSP Certification Course', '25', 500, 'Available'),
+('111', 'PMI-ACP Certification Course', '20', 1000, 'Booked'),
+('9', 'SCM Certification Course', '10', 500, 'Available');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

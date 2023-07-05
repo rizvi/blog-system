@@ -10,12 +10,12 @@
       <TextField layoutX="236.0" layoutY="14.0" promptText="Search Anything" styleClass="searchBox" />
       <TableView fx:id="checkInoutTable" layoutX="8.0" layoutY="50.0" prefHeight="508.0" prefWidth="620.0">
         <columns>
-          <TableColumn fx:id="nidCol" prefWidth="85.0" text="NID" />
-            <TableColumn fx:id="roomNoCol" prefWidth="66.0" text="Room No" />
-            <TableColumn fx:id="roomTypeCol" prefWidth="78.0" text="Room Type" />
-            <TableColumn fx:id="checkedInCol" prefWidth="81.0" text="Checked In" />
-            <TableColumn fx:id="checkedOutCol" prefWidth="88.0" text="Checked Out" />
-            <TableColumn fx:id="priceDayCol" prefWidth="71.0" text="Price/Day" />
+          <TableColumn fx:id="nidCol" prefWidth="85.0" text="Username" />
+            <TableColumn fx:id="roomNoCol" prefWidth="66.0" text="Course ID" />
+            <TableColumn fx:id="roomTypeCol" prefWidth="78.0" text="Course Name" />
+            <TableColumn fx:id="checkedInCol" prefWidth="81.0" text="Enrollment" />
+            <TableColumn fx:id="checkedOutCol" prefWidth="88.0" text="Finish" />
+            <TableColumn fx:id="priceDayCol" prefWidth="71.0" text="Actual Price" />
             <TableColumn fx:id="totalPriceCol" prefWidth="79.0" text="Total Price" />
             <TableColumn fx:id="slipCol" maxWidth="70.0" prefWidth="70.0" resizable="false" text="Slip" />
         </columns>

@@ -26,12 +26,12 @@
                               <Insets right="38.0" />
                            </padding>
                         </JFXButton>
-                        <JFXButton onAction="#ManageRooms" text="Room Check">
+                        <JFXButton onAction="#ManageRooms" text="Course Check">
                            <graphic>
                               <FontAwesomeIconView glyphName="SEARCH" size="19" styleClass="buttonLogo" />
                            </graphic>
                         </JFXButton>
-                        <JFXButton onAction="#ManagerCheckIn" text="Check In">
+                        <JFXButton onAction="#ManagerCheckIn" text="Enroll">
                            <graphic>
                               <FontAwesomeIconView glyphName="SIGN_IN" size="19" styleClass="buttonLogo" />
                            </graphic>
@@ -39,7 +39,7 @@
                               <Insets right="23.0" />
                            </padding>
                         </JFXButton>
-                        <JFXButton onAction="#ManagerCheckOut" text="Check Out">
+                        <JFXButton onAction="#ManagerCheckOut" text="Course Closing">
                            <graphic>
                               <FontAwesomeIconView glyphName="SIGN_OUT" size="19" styleClass="buttonLogo" />
                            </graphic>
@@ -47,7 +47,7 @@
                               <Insets right="12.0" />
                            </padding>
                         </JFXButton>
-                        <JFXButton onAction="#CheckOutDetails" text="Check Hostory">
+                        <JFXButton onAction="#CheckOutDetails" text="Check History">
                            <graphic>
                               <FontAwesomeIconView glyphName="HISTORY" size="19" styleClass="buttonLogo" />
                            </graphic>
@@ -73,7 +73,7 @@
                   <HBox layoutY="-2.0" prefHeight="30.0" prefWidth="185.0" styleClass="titlePane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
                         <FontAwesomeIconView glyphName="GITHUB_ALT" styleClass="titleIcon" />
-                        <Label styleClass="titleText" text="Manager Dashboard" />
+                        <Label styleClass="titleText" text="Blogger Dashboard" />
                      </children>
                   </HBox>
                </children>

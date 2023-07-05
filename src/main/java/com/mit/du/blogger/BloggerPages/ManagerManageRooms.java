@@ -79,10 +79,10 @@ public class ManagerManageRooms extends DBUtil implements Initializable {
             preparedStatement.setString(5, roomStatus);
             try{
                 preparedStatement.execute();
-                CommonUtil.showAlert(Alert.AlertType.INFORMATION, "Successful", "Room Added Successfully!");
+                CommonUtil.showAlert(Alert.AlertType.INFORMATION, "Successful", "Course Added Successfully!");
                 showRoomTable();
             } catch (SQLException e){
-                CommonUtil.showAlert(Alert.AlertType.ERROR, "Error", "This Room no. already exists!");
+                CommonUtil.showAlert(Alert.AlertType.ERROR, "Error", "This Course ID. already exists!");
             } finally {
                 closeConnections();
             }
@@ -258,7 +258,7 @@ public class ManagerManageRooms extends DBUtil implements Initializable {
 
                     statement.execute();
 
-                    CommonUtil.showAlert(Alert.AlertType.INFORMATION, "Delete Operation Successfull", "Room No " + managerRoomTable.getROOMNO() + " is deleted from database!");
+                    CommonUtil.showAlert(Alert.AlertType.INFORMATION, "Delete Operation Successfull", "Course ID " + managerRoomTable.getROOMNO() + " is deleted from database!");
 
                     roomTable.getItems().remove(managerRoomTable);
                 }

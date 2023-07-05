@@ -175,9 +175,9 @@ public class AdminEarningLog implements Initializable {
 
         String title = "Blog Management System Slip\n\n";
         String nid = "Admin NID: " + adminEarningTable.getNid() + "\n";
-        String roomNo = "Room No: " + adminEarningTable.getRoomno() + "\n";
-        String checkedIn = "Checked In Date: " + adminEarningTable.getCheckedin() + "\n";
-        String checkedOut = "Checked Out Date: " + adminEarningTable.getCheckedout() + "\n";
+        String roomNo = "Course ID: " + adminEarningTable.getRoomno() + "\n";
+        String checkedIn = "Enrollment Date: " + adminEarningTable.getCheckedin() + "\n";
+        String checkedOut = "Finish Date: " + adminEarningTable.getCheckedout() + "\n";
         String priceDay = "Price per day: " + adminEarningTable.getPriceday() + " Taka\n";
         String totalBill = "Total Bill: " + adminEarningTable.getTotalprice() + " Taka\n";
         String totalParagraph = title + nid + roomNo + checkedIn + checkedOut + priceDay + totalBill;
